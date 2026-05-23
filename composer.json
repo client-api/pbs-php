@@ -31,22 +31,9 @@
         "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
-        "psr-4": {
-            "ClientApi\\Pbs\\": "lib/"
-        },
-        "files": [
-            "lib/WebSocket.php",
-            "lib/WebSocketResilient.php",
-            "lib/Client.php",
-            "lib/Pbs.php"
-        ]
+        "psr-4": { "ClientApi\\Pbs\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": {
-            "ClientApi\\Pbs\\Test\\": "test/"
-        }
-    },
-    "suggest": {
-        "textalk/websocket": "Required for the experimental WebSocket helpers (terminal / VNC consoles)."
+        "psr-4": { "ClientApi\\Pbs\\Test\\" : "test/" }
     }
 }

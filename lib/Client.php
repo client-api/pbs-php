@@ -65,9 +65,12 @@ use ClientApi\Pbs\Api\VersionApi;
 
 class Client
 {
-    protected Configuration $config;
+    // Renamed from `$config` to dodge collisions with per-tag accessor
+    // methods — PBS/PMG/PDM all expose a `Config` tag, which would emit
+    // a `config()` method on this class. Using `$configuration` keeps
+    // the property distinct from any tag-derived accessor.
+    protected Configuration $configuration;
     protected ?\GuzzleHttp\ClientInterface $http;
-    protected ?WebSocketTransport $wsTransport;
 
     protected ?AccessApi $access = null;
     protected ?AccessAclApi $accessAcl = null;
@@ -132,338 +135,315 @@ class Client
     /**
      * @param ?Configuration                $config       Generator's typed config (host, api keys, ...).
      * @param ?\GuzzleHttp\ClientInterface  $http         Custom Guzzle client (e.g. `new Client(['verify' => false])`
-     *                                                   for self-signed PVE TLS). Threaded through every per-tag
-     *                                                   accessor and the WebSocket termproxy POST.
-     * @param ?WebSocketTransport           $wsTransport  Custom WS transport (e.g. `TextalkTransport::insecure()`).
+     *                                                   for self-signed TLS). Threaded through every per-tag
+     *                                                   accessor and (where applicable) the WebSocket termproxy POST.
      */
     public function __construct(
         ?Configuration $config = null,
         ?\GuzzleHttp\ClientInterface $http = null,
-        ?WebSocketTransport $wsTransport = null,
     ) {
-        $this->config = $config ?? Configuration::getDefaultConfiguration();
+        $this->configuration = $config ?? Configuration::getDefaultConfiguration();
         $this->http = $http;
-        $this->wsTransport = $wsTransport;
     }
 
-    public function config(): Configuration
+    public function configuration(): Configuration
     {
-        return $this->config;
+        return $this->configuration;
     }
 
     public function access(): AccessApi
     {
-        return $this->access ??= new AccessApi($this->http, $this->config);
+        return $this->access ??= new AccessApi($this->http, $this->configuration);
     }
 
     public function accessAcl(): AccessAclApi
     {
-        return $this->accessAcl ??= new AccessAclApi($this->http, $this->config);
+        return $this->accessAcl ??= new AccessAclApi($this->http, $this->configuration);
     }
 
     public function accessDomains(): AccessDomainsApi
     {
-        return $this->accessDomains ??= new AccessDomainsApi($this->http, $this->config);
+        return $this->accessDomains ??= new AccessDomainsApi($this->http, $this->configuration);
     }
 
     public function accessOpenid(): AccessOpenidApi
     {
-        return $this->accessOpenid ??= new AccessOpenidApi($this->http, $this->config);
+        return $this->accessOpenid ??= new AccessOpenidApi($this->http, $this->configuration);
     }
 
     public function accessTfa(): AccessTfaApi
     {
-        return $this->accessTfa ??= new AccessTfaApi($this->http, $this->config);
+        return $this->accessTfa ??= new AccessTfaApi($this->http, $this->configuration);
     }
 
     public function accessTicket(): AccessTicketApi
     {
-        return $this->accessTicket ??= new AccessTicketApi($this->http, $this->config);
+        return $this->accessTicket ??= new AccessTicketApi($this->http, $this->configuration);
     }
 
     public function accessUsers(): AccessUsersApi
     {
-        return $this->accessUsers ??= new AccessUsersApi($this->http, $this->config);
+        return $this->accessUsers ??= new AccessUsersApi($this->http, $this->configuration);
     }
 
     public function admin(): AdminApi
     {
-        return $this->admin ??= new AdminApi($this->http, $this->config);
+        return $this->admin ??= new AdminApi($this->http, $this->configuration);
     }
 
     public function adminDatastore(): AdminDatastoreApi
     {
-        return $this->adminDatastore ??= new AdminDatastoreApi($this->http, $this->config);
+        return $this->adminDatastore ??= new AdminDatastoreApi($this->http, $this->configuration);
     }
 
     public function adminGc(): AdminGcApi
     {
-        return $this->adminGc ??= new AdminGcApi($this->http, $this->config);
+        return $this->adminGc ??= new AdminGcApi($this->http, $this->configuration);
     }
 
     public function adminPrune(): AdminPruneApi
     {
-        return $this->adminPrune ??= new AdminPruneApi($this->http, $this->config);
+        return $this->adminPrune ??= new AdminPruneApi($this->http, $this->configuration);
     }
 
     public function adminS3(): AdminS3Api
     {
-        return $this->adminS3 ??= new AdminS3Api($this->http, $this->config);
+        return $this->adminS3 ??= new AdminS3Api($this->http, $this->configuration);
     }
 
     public function adminSync(): AdminSyncApi
     {
-        return $this->adminSync ??= new AdminSyncApi($this->http, $this->config);
+        return $this->adminSync ??= new AdminSyncApi($this->http, $this->configuration);
     }
 
     public function adminVerify(): AdminVerifyApi
     {
-        return $this->adminVerify ??= new AdminVerifyApi($this->http, $this->config);
+        return $this->adminVerify ??= new AdminVerifyApi($this->http, $this->configuration);
     }
 
     public function backup(): BackupApi
     {
-        return $this->backup ??= new BackupApi($this->http, $this->config);
+        return $this->backup ??= new BackupApi($this->http, $this->configuration);
     }
 
     public function backupUpgrade(): BackupUpgradeApi
     {
-        return $this->backupUpgrade ??= new BackupUpgradeApi($this->http, $this->config);
+        return $this->backupUpgrade ??= new BackupUpgradeApi($this->http, $this->configuration);
     }
 
     public function config(): ConfigApi
     {
-        return $this->config ??= new ConfigApi($this->http, $this->config);
+        return $this->config ??= new ConfigApi($this->http, $this->configuration);
     }
 
     public function configAccess(): ConfigAccessApi
     {
-        return $this->configAccess ??= new ConfigAccessApi($this->http, $this->config);
+        return $this->configAccess ??= new ConfigAccessApi($this->http, $this->configuration);
     }
 
     public function configAcme(): ConfigAcmeApi
     {
-        return $this->configAcme ??= new ConfigAcmeApi($this->http, $this->config);
+        return $this->configAcme ??= new ConfigAcmeApi($this->http, $this->configuration);
     }
 
     public function configChanger(): ConfigChangerApi
     {
-        return $this->configChanger ??= new ConfigChangerApi($this->http, $this->config);
+        return $this->configChanger ??= new ConfigChangerApi($this->http, $this->configuration);
     }
 
     public function configDatastore(): ConfigDatastoreApi
     {
-        return $this->configDatastore ??= new ConfigDatastoreApi($this->http, $this->config);
+        return $this->configDatastore ??= new ConfigDatastoreApi($this->http, $this->configuration);
     }
 
     public function configDrive(): ConfigDriveApi
     {
-        return $this->configDrive ??= new ConfigDriveApi($this->http, $this->config);
+        return $this->configDrive ??= new ConfigDriveApi($this->http, $this->configuration);
     }
 
     public function configEncryptionKeys(): ConfigEncryptionKeysApi
     {
-        return $this->configEncryptionKeys ??= new ConfigEncryptionKeysApi($this->http, $this->config);
+        return $this->configEncryptionKeys ??= new ConfigEncryptionKeysApi($this->http, $this->configuration);
     }
 
     public function configMediaPool(): ConfigMediaPoolApi
     {
-        return $this->configMediaPool ??= new ConfigMediaPoolApi($this->http, $this->config);
+        return $this->configMediaPool ??= new ConfigMediaPoolApi($this->http, $this->configuration);
     }
 
     public function configMetrics(): ConfigMetricsApi
     {
-        return $this->configMetrics ??= new ConfigMetricsApi($this->http, $this->config);
+        return $this->configMetrics ??= new ConfigMetricsApi($this->http, $this->configuration);
     }
 
     public function configNotifications(): ConfigNotificationsApi
     {
-        return $this->configNotifications ??= new ConfigNotificationsApi($this->http, $this->config);
+        return $this->configNotifications ??= new ConfigNotificationsApi($this->http, $this->configuration);
     }
 
     public function configPrune(): ConfigPruneApi
     {
-        return $this->configPrune ??= new ConfigPruneApi($this->http, $this->config);
+        return $this->configPrune ??= new ConfigPruneApi($this->http, $this->configuration);
     }
 
     public function configRemote(): ConfigRemoteApi
     {
-        return $this->configRemote ??= new ConfigRemoteApi($this->http, $this->config);
+        return $this->configRemote ??= new ConfigRemoteApi($this->http, $this->configuration);
     }
 
     public function configS3(): ConfigS3Api
     {
-        return $this->configS3 ??= new ConfigS3Api($this->http, $this->config);
+        return $this->configS3 ??= new ConfigS3Api($this->http, $this->configuration);
     }
 
     public function configSync(): ConfigSyncApi
     {
-        return $this->configSync ??= new ConfigSyncApi($this->http, $this->config);
+        return $this->configSync ??= new ConfigSyncApi($this->http, $this->configuration);
     }
 
     public function configTapeBackupJob(): ConfigTapeBackupJobApi
     {
-        return $this->configTapeBackupJob ??= new ConfigTapeBackupJobApi($this->http, $this->config);
+        return $this->configTapeBackupJob ??= new ConfigTapeBackupJobApi($this->http, $this->configuration);
     }
 
     public function configTapeEncryptionKeys(): ConfigTapeEncryptionKeysApi
     {
-        return $this->configTapeEncryptionKeys ??= new ConfigTapeEncryptionKeysApi($this->http, $this->config);
+        return $this->configTapeEncryptionKeys ??= new ConfigTapeEncryptionKeysApi($this->http, $this->configuration);
     }
 
     public function configTrafficControl(): ConfigTrafficControlApi
     {
-        return $this->configTrafficControl ??= new ConfigTrafficControlApi($this->http, $this->config);
+        return $this->configTrafficControl ??= new ConfigTrafficControlApi($this->http, $this->configuration);
     }
 
     public function configVerify(): ConfigVerifyApi
     {
-        return $this->configVerify ??= new ConfigVerifyApi($this->http, $this->config);
+        return $this->configVerify ??= new ConfigVerifyApi($this->http, $this->configuration);
     }
 
     public function misc(): MiscApi
     {
-        return $this->misc ??= new MiscApi($this->http, $this->config);
+        return $this->misc ??= new MiscApi($this->http, $this->configuration);
     }
 
     public function nodes(): NodesApi
     {
-        return $this->nodes ??= new NodesApi($this->http, $this->config);
+        return $this->nodes ??= new NodesApi($this->http, $this->configuration);
     }
 
     public function nodesApt(): NodesAptApi
     {
-        return $this->nodesApt ??= new NodesAptApi($this->http, $this->config);
+        return $this->nodesApt ??= new NodesAptApi($this->http, $this->configuration);
     }
 
     public function nodesCertificates(): NodesCertificatesApi
     {
-        return $this->nodesCertificates ??= new NodesCertificatesApi($this->http, $this->config);
+        return $this->nodesCertificates ??= new NodesCertificatesApi($this->http, $this->configuration);
     }
 
     public function nodesConfig(): NodesConfigApi
     {
-        return $this->nodesConfig ??= new NodesConfigApi($this->http, $this->config);
+        return $this->nodesConfig ??= new NodesConfigApi($this->http, $this->configuration);
     }
 
     public function nodesDisks(): NodesDisksApi
     {
-        return $this->nodesDisks ??= new NodesDisksApi($this->http, $this->config);
+        return $this->nodesDisks ??= new NodesDisksApi($this->http, $this->configuration);
     }
 
     public function nodesDns(): NodesDnsApi
     {
-        return $this->nodesDns ??= new NodesDnsApi($this->http, $this->config);
+        return $this->nodesDns ??= new NodesDnsApi($this->http, $this->configuration);
     }
 
     public function nodesNetwork(): NodesNetworkApi
     {
-        return $this->nodesNetwork ??= new NodesNetworkApi($this->http, $this->config);
+        return $this->nodesNetwork ??= new NodesNetworkApi($this->http, $this->configuration);
     }
 
     public function nodesServices(): NodesServicesApi
     {
-        return $this->nodesServices ??= new NodesServicesApi($this->http, $this->config);
+        return $this->nodesServices ??= new NodesServicesApi($this->http, $this->configuration);
     }
 
     public function nodesStatus(): NodesStatusApi
     {
-        return $this->nodesStatus ??= new NodesStatusApi($this->http, $this->config);
+        return $this->nodesStatus ??= new NodesStatusApi($this->http, $this->configuration);
     }
 
     public function nodesSubscription(): NodesSubscriptionApi
     {
-        return $this->nodesSubscription ??= new NodesSubscriptionApi($this->http, $this->config);
+        return $this->nodesSubscription ??= new NodesSubscriptionApi($this->http, $this->configuration);
     }
 
     public function nodesTasks(): NodesTasksApi
     {
-        return $this->nodesTasks ??= new NodesTasksApi($this->http, $this->config);
+        return $this->nodesTasks ??= new NodesTasksApi($this->http, $this->configuration);
     }
 
     public function nodesTime(): NodesTimeApi
     {
-        return $this->nodesTime ??= new NodesTimeApi($this->http, $this->config);
+        return $this->nodesTime ??= new NodesTimeApi($this->http, $this->configuration);
     }
 
     public function ping(): PingApi
     {
-        return $this->ping ??= new PingApi($this->http, $this->config);
+        return $this->ping ??= new PingApi($this->http, $this->configuration);
     }
 
     public function pull(): PullApi
     {
-        return $this->pull ??= new PullApi($this->http, $this->config);
+        return $this->pull ??= new PullApi($this->http, $this->configuration);
     }
 
     public function push(): PushApi
     {
-        return $this->push ??= new PushApi($this->http, $this->config);
+        return $this->push ??= new PushApi($this->http, $this->configuration);
     }
 
     public function reader(): ReaderApi
     {
-        return $this->reader ??= new ReaderApi($this->http, $this->config);
+        return $this->reader ??= new ReaderApi($this->http, $this->configuration);
     }
 
     public function readerUpgrade(): ReaderUpgradeApi
     {
-        return $this->readerUpgrade ??= new ReaderUpgradeApi($this->http, $this->config);
+        return $this->readerUpgrade ??= new ReaderUpgradeApi($this->http, $this->configuration);
     }
 
     public function status(): StatusApi
     {
-        return $this->status ??= new StatusApi($this->http, $this->config);
+        return $this->status ??= new StatusApi($this->http, $this->configuration);
     }
 
     public function tape(): TapeApi
     {
-        return $this->tape ??= new TapeApi($this->http, $this->config);
+        return $this->tape ??= new TapeApi($this->http, $this->configuration);
     }
 
     public function tapeBackup(): TapeBackupApi
     {
-        return $this->tapeBackup ??= new TapeBackupApi($this->http, $this->config);
+        return $this->tapeBackup ??= new TapeBackupApi($this->http, $this->configuration);
     }
 
     public function tapeChanger(): TapeChangerApi
     {
-        return $this->tapeChanger ??= new TapeChangerApi($this->http, $this->config);
+        return $this->tapeChanger ??= new TapeChangerApi($this->http, $this->configuration);
     }
 
     public function tapeDrive(): TapeDriveApi
     {
-        return $this->tapeDrive ??= new TapeDriveApi($this->http, $this->config);
+        return $this->tapeDrive ??= new TapeDriveApi($this->http, $this->configuration);
     }
 
     public function tapeMedia(): TapeMediaApi
     {
-        return $this->tapeMedia ??= new TapeMediaApi($this->http, $this->config);
+        return $this->tapeMedia ??= new TapeMediaApi($this->http, $this->configuration);
     }
 
     public function version(): VersionApi
     {
-        return $this->version ??= new VersionApi($this->http, $this->config);
+        return $this->version ??= new VersionApi($this->http, $this->configuration);
     }
 
-
-    /** Open a terminal session against a node, QEMU VM, or LXC container. @experimental */
-    public function connectTerminal(TerminalTarget $target): TerminalSession
-    {
-        return $this->buildConsoleConnector()->connectTerminal($this->config, $target);
-    }
-
-    /** Open a VNC session against a node shell, QEMU VM, or LXC container. @experimental */
-    public function connectVnc(VncTarget $target): VncSession
-    {
-        return $this->buildConsoleConnector()->connectVnc($this->config, $target);
-    }
-
-    private function buildConsoleConnector(): ConsoleConnector
-    {
-        return new ConsoleConnector(
-            transport: $this->wsTransport ?? new TextalkTransport(),
-            http: $this->http,
-        );
-    }
 }
