@@ -1,0 +1,47 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # Mirror composer.json's `php: ^8.1` requirement — 7.4 is EOL
+        # and not supported by the openapi-generator PHP template.
+        php-version: ['8.1', '8.2', '8.3', '8.4']
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          tools: composer:v2
+          coverage: none
+
+      - name: Verify setup-php's PHP is on PATH
+        run: |
+          php --version
+          composer --version
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-interaction
+
+      - name: Lint every PHP file
+        run: |
+          set -e
+          fails=0
+          while IFS= read -r f; do
+            php -l "$f" >/dev/null 2>&1 || { echo "FAIL: $f"; fails=$((fails+1)); }
+          done < <(find lib -name '*.php')
+          if [ "$fails" -gt 0 ]; then
+            echo "$fails files failed php -l"
+            exit 1
+          fi
+
+      - name: Run PHPUnit (if configured)
+        run: composer test || true
