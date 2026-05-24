@@ -257,9 +257,9 @@ class NodesAptCreateUpdateRequest implements ModelInterface, ArrayAccess, \JsonS
     public function __construct(?array $data = null)
     {
         
-        $this->setIfExists('notify', $data ?? [], 0);
+        $this->setIfExists('notify', $data ?? [], false);
         
-        $this->setIfExists('quiet', $data ?? [], 0);
+        $this->setIfExists('quiet', $data ?? [], false);
         
 
     }

@@ -1804,7 +1804,7 @@ class TapeMediaApi
      * List pool media
      *
      * @param  string|null $pool Media pool name. (optional)
-     * @param  bool|null $update_status Try to update tape library status (check what tapes are online). (optional, default to 1)
+     * @param  bool|null $update_status Try to update tape library status (check what tapes are online). (optional, default to true)
      * @param  string|null $update_status_changer Tape Changer Identifier. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeMediaGetList'] to see the possible values for this operation
      *
@@ -1812,7 +1812,7 @@ class TapeMediaApi
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\TapeMediaGetListResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function tapeMediaGetList($pool = null, $update_status = 1, $update_status_changer = null, string $contentType = self::contentTypes['tapeMediaGetList'][0])
+    public function tapeMediaGetList($pool = null, $update_status = true, $update_status_changer = null, string $contentType = self::contentTypes['tapeMediaGetList'][0])
     {
         list($response) = $this->tapeMediaGetListWithHttpInfo($pool, $update_status, $update_status_changer, $contentType);
         return $response;
@@ -1824,7 +1824,7 @@ class TapeMediaApi
      * List pool media
      *
      * @param  string|null $pool Media pool name. (optional)
-     * @param  bool|null $update_status Try to update tape library status (check what tapes are online). (optional, default to 1)
+     * @param  bool|null $update_status Try to update tape library status (check what tapes are online). (optional, default to true)
      * @param  string|null $update_status_changer Tape Changer Identifier. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeMediaGetList'] to see the possible values for this operation
      *
@@ -1832,7 +1832,7 @@ class TapeMediaApi
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\TapeMediaGetListResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function tapeMediaGetListWithHttpInfo($pool = null, $update_status = 1, $update_status_changer = null, string $contentType = self::contentTypes['tapeMediaGetList'][0])
+    public function tapeMediaGetListWithHttpInfo($pool = null, $update_status = true, $update_status_changer = null, string $contentType = self::contentTypes['tapeMediaGetList'][0])
     {
         $request = $this->tapeMediaGetListRequest($pool, $update_status, $update_status_changer, $contentType);
 
@@ -2009,14 +2009,14 @@ class TapeMediaApi
      * List pool media
      *
      * @param  string|null $pool Media pool name. (optional)
-     * @param  bool|null $update_status Try to update tape library status (check what tapes are online). (optional, default to 1)
+     * @param  bool|null $update_status Try to update tape library status (check what tapes are online). (optional, default to true)
      * @param  string|null $update_status_changer Tape Changer Identifier. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeMediaGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tapeMediaGetListAsync($pool = null, $update_status = 1, $update_status_changer = null, string $contentType = self::contentTypes['tapeMediaGetList'][0])
+    public function tapeMediaGetListAsync($pool = null, $update_status = true, $update_status_changer = null, string $contentType = self::contentTypes['tapeMediaGetList'][0])
     {
         return $this->tapeMediaGetListAsyncWithHttpInfo($pool, $update_status, $update_status_changer, $contentType)
             ->then(
@@ -2032,14 +2032,14 @@ class TapeMediaApi
      * List pool media
      *
      * @param  string|null $pool Media pool name. (optional)
-     * @param  bool|null $update_status Try to update tape library status (check what tapes are online). (optional, default to 1)
+     * @param  bool|null $update_status Try to update tape library status (check what tapes are online). (optional, default to true)
      * @param  string|null $update_status_changer Tape Changer Identifier. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeMediaGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tapeMediaGetListAsyncWithHttpInfo($pool = null, $update_status = 1, $update_status_changer = null, string $contentType = self::contentTypes['tapeMediaGetList'][0])
+    public function tapeMediaGetListAsyncWithHttpInfo($pool = null, $update_status = true, $update_status_changer = null, string $contentType = self::contentTypes['tapeMediaGetList'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\TapeMediaGetListResponse';
         $request = $this->tapeMediaGetListRequest($pool, $update_status, $update_status_changer, $contentType);
@@ -2084,14 +2084,14 @@ class TapeMediaApi
      * Create request for operation 'tapeMediaGetList'
      *
      * @param  string|null $pool Media pool name. (optional)
-     * @param  bool|null $update_status Try to update tape library status (check what tapes are online). (optional, default to 1)
+     * @param  bool|null $update_status Try to update tape library status (check what tapes are online). (optional, default to true)
      * @param  string|null $update_status_changer Tape Changer Identifier. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeMediaGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function tapeMediaGetListRequest($pool = null, $update_status = 1, $update_status_changer = null, string $contentType = self::contentTypes['tapeMediaGetList'][0])
+    public function tapeMediaGetListRequest($pool = null, $update_status = true, $update_status_changer = null, string $contentType = self::contentTypes['tapeMediaGetList'][0])
     {
 
         if ($pool !== null && strlen($pool) > 32) {

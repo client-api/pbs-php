@@ -2522,8 +2522,8 @@ class NodesDisksApi
      * List local disks
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $include_partitions Include partitions. (optional, default to 0)
-     * @param  bool|null $skipsmart Skip smart checks. (optional, default to 0)
+     * @param  bool|null $include_partitions Include partitions. (optional, default to false)
+     * @param  bool|null $skipsmart Skip smart checks. (optional, default to false)
      * @param  \ClientApi\Pbs\Model\PbsUsageTypeEnum|null $usage_type What a block device (disk) is used for. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['nodesDisksGetList'] to see the possible values for this operation
      *
@@ -2531,7 +2531,7 @@ class NodesDisksApi
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\NodesDisksGetListResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function nodesDisksGetList($node, $include_partitions = 0, $skipsmart = 0, $usage_type = null, string $contentType = self::contentTypes['nodesDisksGetList'][0])
+    public function nodesDisksGetList($node, $include_partitions = false, $skipsmart = false, $usage_type = null, string $contentType = self::contentTypes['nodesDisksGetList'][0])
     {
         list($response) = $this->nodesDisksGetListWithHttpInfo($node, $include_partitions, $skipsmart, $usage_type, $contentType);
         return $response;
@@ -2543,8 +2543,8 @@ class NodesDisksApi
      * List local disks
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $include_partitions Include partitions. (optional, default to 0)
-     * @param  bool|null $skipsmart Skip smart checks. (optional, default to 0)
+     * @param  bool|null $include_partitions Include partitions. (optional, default to false)
+     * @param  bool|null $skipsmart Skip smart checks. (optional, default to false)
      * @param  \ClientApi\Pbs\Model\PbsUsageTypeEnum|null $usage_type What a block device (disk) is used for. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['nodesDisksGetList'] to see the possible values for this operation
      *
@@ -2552,7 +2552,7 @@ class NodesDisksApi
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\NodesDisksGetListResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function nodesDisksGetListWithHttpInfo($node, $include_partitions = 0, $skipsmart = 0, $usage_type = null, string $contentType = self::contentTypes['nodesDisksGetList'][0])
+    public function nodesDisksGetListWithHttpInfo($node, $include_partitions = false, $skipsmart = false, $usage_type = null, string $contentType = self::contentTypes['nodesDisksGetList'][0])
     {
         $request = $this->nodesDisksGetListRequest($node, $include_partitions, $skipsmart, $usage_type, $contentType);
 
@@ -2729,15 +2729,15 @@ class NodesDisksApi
      * List local disks
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $include_partitions Include partitions. (optional, default to 0)
-     * @param  bool|null $skipsmart Skip smart checks. (optional, default to 0)
+     * @param  bool|null $include_partitions Include partitions. (optional, default to false)
+     * @param  bool|null $skipsmart Skip smart checks. (optional, default to false)
      * @param  \ClientApi\Pbs\Model\PbsUsageTypeEnum|null $usage_type What a block device (disk) is used for. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['nodesDisksGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function nodesDisksGetListAsync($node, $include_partitions = 0, $skipsmart = 0, $usage_type = null, string $contentType = self::contentTypes['nodesDisksGetList'][0])
+    public function nodesDisksGetListAsync($node, $include_partitions = false, $skipsmart = false, $usage_type = null, string $contentType = self::contentTypes['nodesDisksGetList'][0])
     {
         return $this->nodesDisksGetListAsyncWithHttpInfo($node, $include_partitions, $skipsmart, $usage_type, $contentType)
             ->then(
@@ -2753,15 +2753,15 @@ class NodesDisksApi
      * List local disks
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $include_partitions Include partitions. (optional, default to 0)
-     * @param  bool|null $skipsmart Skip smart checks. (optional, default to 0)
+     * @param  bool|null $include_partitions Include partitions. (optional, default to false)
+     * @param  bool|null $skipsmart Skip smart checks. (optional, default to false)
      * @param  \ClientApi\Pbs\Model\PbsUsageTypeEnum|null $usage_type What a block device (disk) is used for. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['nodesDisksGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function nodesDisksGetListAsyncWithHttpInfo($node, $include_partitions = 0, $skipsmart = 0, $usage_type = null, string $contentType = self::contentTypes['nodesDisksGetList'][0])
+    public function nodesDisksGetListAsyncWithHttpInfo($node, $include_partitions = false, $skipsmart = false, $usage_type = null, string $contentType = self::contentTypes['nodesDisksGetList'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\NodesDisksGetListResponse';
         $request = $this->nodesDisksGetListRequest($node, $include_partitions, $skipsmart, $usage_type, $contentType);
@@ -2806,15 +2806,15 @@ class NodesDisksApi
      * Create request for operation 'nodesDisksGetList'
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $include_partitions Include partitions. (optional, default to 0)
-     * @param  bool|null $skipsmart Skip smart checks. (optional, default to 0)
+     * @param  bool|null $include_partitions Include partitions. (optional, default to false)
+     * @param  bool|null $skipsmart Skip smart checks. (optional, default to false)
      * @param  \ClientApi\Pbs\Model\PbsUsageTypeEnum|null $usage_type What a block device (disk) is used for. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['nodesDisksGetList'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function nodesDisksGetListRequest($node, $include_partitions = 0, $skipsmart = 0, $usage_type = null, string $contentType = self::contentTypes['nodesDisksGetList'][0])
+    public function nodesDisksGetListRequest($node, $include_partitions = false, $skipsmart = false, $usage_type = null, string $contentType = self::contentTypes['nodesDisksGetList'][0])
     {
 
         // verify the required parameter 'node' is set

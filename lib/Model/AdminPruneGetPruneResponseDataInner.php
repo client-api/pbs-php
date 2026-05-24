@@ -349,7 +349,7 @@ class AdminPruneGetPruneResponseDataInner implements ModelInterface, ArrayAccess
         
         $this->setIfExists('comment', $data ?? [], null);
         
-        $this->setIfExists('disable', $data ?? [], 0);
+        $this->setIfExists('disable', $data ?? [], false);
         
         $this->setIfExists('id', $data ?? [], null);
         

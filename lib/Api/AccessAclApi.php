@@ -134,7 +134,7 @@ class AccessAclApi
      *
      * Read Access Control List (ACLs)
      *
-     * @param  bool|null $exact If set, returns only ACL for the exact path. (optional, default to 0)
+     * @param  bool|null $exact If set, returns only ACL for the exact path. (optional, default to false)
      * @param  string|null $path Access control path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accessAclGetAcl'] to see the possible values for this operation
      *
@@ -142,7 +142,7 @@ class AccessAclApi
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\AccessAclGetAclResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function accessAclGetAcl($exact = 0, $path = null, string $contentType = self::contentTypes['accessAclGetAcl'][0])
+    public function accessAclGetAcl($exact = false, $path = null, string $contentType = self::contentTypes['accessAclGetAcl'][0])
     {
         list($response) = $this->accessAclGetAclWithHttpInfo($exact, $path, $contentType);
         return $response;
@@ -153,7 +153,7 @@ class AccessAclApi
      *
      * Read Access Control List (ACLs)
      *
-     * @param  bool|null $exact If set, returns only ACL for the exact path. (optional, default to 0)
+     * @param  bool|null $exact If set, returns only ACL for the exact path. (optional, default to false)
      * @param  string|null $path Access control path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accessAclGetAcl'] to see the possible values for this operation
      *
@@ -161,7 +161,7 @@ class AccessAclApi
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\AccessAclGetAclResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accessAclGetAclWithHttpInfo($exact = 0, $path = null, string $contentType = self::contentTypes['accessAclGetAcl'][0])
+    public function accessAclGetAclWithHttpInfo($exact = false, $path = null, string $contentType = self::contentTypes['accessAclGetAcl'][0])
     {
         $request = $this->accessAclGetAclRequest($exact, $path, $contentType);
 
@@ -337,14 +337,14 @@ class AccessAclApi
      *
      * Read Access Control List (ACLs)
      *
-     * @param  bool|null $exact If set, returns only ACL for the exact path. (optional, default to 0)
+     * @param  bool|null $exact If set, returns only ACL for the exact path. (optional, default to false)
      * @param  string|null $path Access control path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accessAclGetAcl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accessAclGetAclAsync($exact = 0, $path = null, string $contentType = self::contentTypes['accessAclGetAcl'][0])
+    public function accessAclGetAclAsync($exact = false, $path = null, string $contentType = self::contentTypes['accessAclGetAcl'][0])
     {
         return $this->accessAclGetAclAsyncWithHttpInfo($exact, $path, $contentType)
             ->then(
@@ -359,14 +359,14 @@ class AccessAclApi
      *
      * Read Access Control List (ACLs)
      *
-     * @param  bool|null $exact If set, returns only ACL for the exact path. (optional, default to 0)
+     * @param  bool|null $exact If set, returns only ACL for the exact path. (optional, default to false)
      * @param  string|null $path Access control path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accessAclGetAcl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accessAclGetAclAsyncWithHttpInfo($exact = 0, $path = null, string $contentType = self::contentTypes['accessAclGetAcl'][0])
+    public function accessAclGetAclAsyncWithHttpInfo($exact = false, $path = null, string $contentType = self::contentTypes['accessAclGetAcl'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\AccessAclGetAclResponse';
         $request = $this->accessAclGetAclRequest($exact, $path, $contentType);
@@ -410,14 +410,14 @@ class AccessAclApi
     /**
      * Create request for operation 'accessAclGetAcl'
      *
-     * @param  bool|null $exact If set, returns only ACL for the exact path. (optional, default to 0)
+     * @param  bool|null $exact If set, returns only ACL for the exact path. (optional, default to false)
      * @param  string|null $path Access control path. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accessAclGetAcl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accessAclGetAclRequest($exact = 0, $path = null, string $contentType = self::contentTypes['accessAclGetAcl'][0])
+    public function accessAclGetAclRequest($exact = false, $path = null, string $contentType = self::contentTypes['accessAclGetAcl'][0])
     {
 
 

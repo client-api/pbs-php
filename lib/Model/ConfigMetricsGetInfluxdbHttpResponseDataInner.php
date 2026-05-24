@@ -303,7 +303,7 @@ class ConfigMetricsGetInfluxdbHttpResponseDataInner implements ModelInterface, A
         
         $this->setIfExists('comment', $data ?? [], null);
         
-        $this->setIfExists('enable', $data ?? [], 1);
+        $this->setIfExists('enable', $data ?? [], true);
         
         $this->setIfExists('max_body_size', $data ?? [], 25000000);
         
@@ -315,7 +315,7 @@ class ConfigMetricsGetInfluxdbHttpResponseDataInner implements ModelInterface, A
         
         $this->setIfExists('url', $data ?? [], null);
         
-        $this->setIfExists('verify_tls', $data ?? [], 1);
+        $this->setIfExists('verify_tls', $data ?? [], true);
         
 
     }

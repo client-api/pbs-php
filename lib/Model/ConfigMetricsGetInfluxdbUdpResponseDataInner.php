@@ -277,7 +277,7 @@ class ConfigMetricsGetInfluxdbUdpResponseDataInner implements ModelInterface, Ar
         
         $this->setIfExists('comment', $data ?? [], null);
         
-        $this->setIfExists('enable', $data ?? [], 1);
+        $this->setIfExists('enable', $data ?? [], true);
         
         $this->setIfExists('host', $data ?? [], null);
         

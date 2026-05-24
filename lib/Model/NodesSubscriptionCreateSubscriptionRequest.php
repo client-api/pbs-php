@@ -251,7 +251,7 @@ class NodesSubscriptionCreateSubscriptionRequest implements ModelInterface, Arra
     public function __construct(?array $data = null)
     {
         
-        $this->setIfExists('force', $data ?? [], 0);
+        $this->setIfExists('force', $data ?? [], false);
         
 
     }

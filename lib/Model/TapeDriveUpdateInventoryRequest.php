@@ -257,9 +257,9 @@ class TapeDriveUpdateInventoryRequest implements ModelInterface, ArrayAccess, \J
     public function __construct(?array $data = null)
     {
         
-        $this->setIfExists('catalog', $data ?? [], 0);
+        $this->setIfExists('catalog', $data ?? [], false);
         
-        $this->setIfExists('read_all_labels', $data ?? [], 0);
+        $this->setIfExists('read_all_labels', $data ?? [], false);
         
 
     }

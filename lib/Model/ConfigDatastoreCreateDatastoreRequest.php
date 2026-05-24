@@ -425,13 +425,13 @@ class ConfigDatastoreCreateDatastoreRequest implements ModelInterface, ArrayAcce
         
         $this->setIfExists('notify_user', $data ?? [], null);
         
-        $this->setIfExists('overwrite_in_use', $data ?? [], 0);
+        $this->setIfExists('overwrite_in_use', $data ?? [], false);
         
         $this->setIfExists('path', $data ?? [], null);
         
         $this->setIfExists('prune_schedule', $data ?? [], null);
         
-        $this->setIfExists('reuse_datastore', $data ?? [], 0);
+        $this->setIfExists('reuse_datastore', $data ?? [], false);
         
         $this->setIfExists('tuning', $data ?? [], null);
         

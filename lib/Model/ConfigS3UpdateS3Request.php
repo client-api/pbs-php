@@ -349,7 +349,7 @@ class ConfigS3UpdateS3Request implements ModelInterface, ArrayAccess, \JsonSeria
         
         $this->setIfExists('fingerprint', $data ?? [], null);
         
-        $this->setIfExists('path_style', $data ?? [], 0);
+        $this->setIfExists('path_style', $data ?? [], false);
         
         $this->setIfExists('port', $data ?? [], null);
         

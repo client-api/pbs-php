@@ -2967,14 +2967,14 @@ class AccessUsersApi
      *
      * List users
      *
-     * @param  bool|null $include_tokens Include user&#39;s API tokens in returned list. (optional, default to 0)
+     * @param  bool|null $include_tokens Include user&#39;s API tokens in returned list. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accessUsersGetUsers'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\AccessUsersGetUsersResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function accessUsersGetUsers($include_tokens = 0, string $contentType = self::contentTypes['accessUsersGetUsers'][0])
+    public function accessUsersGetUsers($include_tokens = false, string $contentType = self::contentTypes['accessUsersGetUsers'][0])
     {
         list($response) = $this->accessUsersGetUsersWithHttpInfo($include_tokens, $contentType);
         return $response;
@@ -2985,14 +2985,14 @@ class AccessUsersApi
      *
      * List users
      *
-     * @param  bool|null $include_tokens Include user&#39;s API tokens in returned list. (optional, default to 0)
+     * @param  bool|null $include_tokens Include user&#39;s API tokens in returned list. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accessUsersGetUsers'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\AccessUsersGetUsersResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accessUsersGetUsersWithHttpInfo($include_tokens = 0, string $contentType = self::contentTypes['accessUsersGetUsers'][0])
+    public function accessUsersGetUsersWithHttpInfo($include_tokens = false, string $contentType = self::contentTypes['accessUsersGetUsers'][0])
     {
         $request = $this->accessUsersGetUsersRequest($include_tokens, $contentType);
 
@@ -3168,13 +3168,13 @@ class AccessUsersApi
      *
      * List users
      *
-     * @param  bool|null $include_tokens Include user&#39;s API tokens in returned list. (optional, default to 0)
+     * @param  bool|null $include_tokens Include user&#39;s API tokens in returned list. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accessUsersGetUsers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accessUsersGetUsersAsync($include_tokens = 0, string $contentType = self::contentTypes['accessUsersGetUsers'][0])
+    public function accessUsersGetUsersAsync($include_tokens = false, string $contentType = self::contentTypes['accessUsersGetUsers'][0])
     {
         return $this->accessUsersGetUsersAsyncWithHttpInfo($include_tokens, $contentType)
             ->then(
@@ -3189,13 +3189,13 @@ class AccessUsersApi
      *
      * List users
      *
-     * @param  bool|null $include_tokens Include user&#39;s API tokens in returned list. (optional, default to 0)
+     * @param  bool|null $include_tokens Include user&#39;s API tokens in returned list. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accessUsersGetUsers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accessUsersGetUsersAsyncWithHttpInfo($include_tokens = 0, string $contentType = self::contentTypes['accessUsersGetUsers'][0])
+    public function accessUsersGetUsersAsyncWithHttpInfo($include_tokens = false, string $contentType = self::contentTypes['accessUsersGetUsers'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\AccessUsersGetUsersResponse';
         $request = $this->accessUsersGetUsersRequest($include_tokens, $contentType);
@@ -3239,13 +3239,13 @@ class AccessUsersApi
     /**
      * Create request for operation 'accessUsersGetUsers'
      *
-     * @param  bool|null $include_tokens Include user&#39;s API tokens in returned list. (optional, default to 0)
+     * @param  bool|null $include_tokens Include user&#39;s API tokens in returned list. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accessUsersGetUsers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accessUsersGetUsersRequest($include_tokens = 0, string $contentType = self::contentTypes['accessUsersGetUsers'][0])
+    public function accessUsersGetUsersRequest($include_tokens = false, string $contentType = self::contentTypes['accessUsersGetUsers'][0])
     {
 
 

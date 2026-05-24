@@ -297,7 +297,7 @@ class AccessUsersCreateUsersRequest implements ModelInterface, ArrayAccess, \Jso
         
         $this->setIfExists('email', $data ?? [], null);
         
-        $this->setIfExists('enable', $data ?? [], 1);
+        $this->setIfExists('enable', $data ?? [], true);
         
         $this->setIfExists('expire', $data ?? [], 0);
         

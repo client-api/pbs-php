@@ -546,7 +546,7 @@ class NodesTasksApi
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
      * @param  string $upid Unique Process/Task Identifier (required)
-     * @param  bool|null $download Whether the tasklog file should be downloaded. This parameter can&#39;t be used in conjunction with other parameters (optional, default to 0)
+     * @param  bool|null $download Whether the tasklog file should be downloaded. This parameter can&#39;t be used in conjunction with other parameters (optional, default to false)
      * @param  int|null $limit The amount of lines to read from the tasklog. Setting this parameter to 0 will return all lines until the end of the file. (optional, default to 50)
      * @param  int|null $start Start at this line when reading the tasklog (optional, default to 0)
      * @param  bool|null $test_status Test task status, and set result attribute \&quot;active\&quot; accordingly. (optional)
@@ -556,7 +556,7 @@ class NodesTasksApi
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\NodesTasksGetLogResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function nodesTasksGetLog($node, $upid, $download = 0, $limit = 50, $start = 0, $test_status = null, string $contentType = self::contentTypes['nodesTasksGetLog'][0])
+    public function nodesTasksGetLog($node, $upid, $download = false, $limit = 50, $start = 0, $test_status = null, string $contentType = self::contentTypes['nodesTasksGetLog'][0])
     {
         list($response) = $this->nodesTasksGetLogWithHttpInfo($node, $upid, $download, $limit, $start, $test_status, $contentType);
         return $response;
@@ -569,7 +569,7 @@ class NodesTasksApi
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
      * @param  string $upid Unique Process/Task Identifier (required)
-     * @param  bool|null $download Whether the tasklog file should be downloaded. This parameter can&#39;t be used in conjunction with other parameters (optional, default to 0)
+     * @param  bool|null $download Whether the tasklog file should be downloaded. This parameter can&#39;t be used in conjunction with other parameters (optional, default to false)
      * @param  int|null $limit The amount of lines to read from the tasklog. Setting this parameter to 0 will return all lines until the end of the file. (optional, default to 50)
      * @param  int|null $start Start at this line when reading the tasklog (optional, default to 0)
      * @param  bool|null $test_status Test task status, and set result attribute \&quot;active\&quot; accordingly. (optional)
@@ -579,7 +579,7 @@ class NodesTasksApi
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\NodesTasksGetLogResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function nodesTasksGetLogWithHttpInfo($node, $upid, $download = 0, $limit = 50, $start = 0, $test_status = null, string $contentType = self::contentTypes['nodesTasksGetLog'][0])
+    public function nodesTasksGetLogWithHttpInfo($node, $upid, $download = false, $limit = 50, $start = 0, $test_status = null, string $contentType = self::contentTypes['nodesTasksGetLog'][0])
     {
         $request = $this->nodesTasksGetLogRequest($node, $upid, $download, $limit, $start, $test_status, $contentType);
 
@@ -757,7 +757,7 @@ class NodesTasksApi
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
      * @param  string $upid Unique Process/Task Identifier (required)
-     * @param  bool|null $download Whether the tasklog file should be downloaded. This parameter can&#39;t be used in conjunction with other parameters (optional, default to 0)
+     * @param  bool|null $download Whether the tasklog file should be downloaded. This parameter can&#39;t be used in conjunction with other parameters (optional, default to false)
      * @param  int|null $limit The amount of lines to read from the tasklog. Setting this parameter to 0 will return all lines until the end of the file. (optional, default to 50)
      * @param  int|null $start Start at this line when reading the tasklog (optional, default to 0)
      * @param  bool|null $test_status Test task status, and set result attribute \&quot;active\&quot; accordingly. (optional)
@@ -766,7 +766,7 @@ class NodesTasksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function nodesTasksGetLogAsync($node, $upid, $download = 0, $limit = 50, $start = 0, $test_status = null, string $contentType = self::contentTypes['nodesTasksGetLog'][0])
+    public function nodesTasksGetLogAsync($node, $upid, $download = false, $limit = 50, $start = 0, $test_status = null, string $contentType = self::contentTypes['nodesTasksGetLog'][0])
     {
         return $this->nodesTasksGetLogAsyncWithHttpInfo($node, $upid, $download, $limit, $start, $test_status, $contentType)
             ->then(
@@ -783,7 +783,7 @@ class NodesTasksApi
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
      * @param  string $upid Unique Process/Task Identifier (required)
-     * @param  bool|null $download Whether the tasklog file should be downloaded. This parameter can&#39;t be used in conjunction with other parameters (optional, default to 0)
+     * @param  bool|null $download Whether the tasklog file should be downloaded. This parameter can&#39;t be used in conjunction with other parameters (optional, default to false)
      * @param  int|null $limit The amount of lines to read from the tasklog. Setting this parameter to 0 will return all lines until the end of the file. (optional, default to 50)
      * @param  int|null $start Start at this line when reading the tasklog (optional, default to 0)
      * @param  bool|null $test_status Test task status, and set result attribute \&quot;active\&quot; accordingly. (optional)
@@ -792,7 +792,7 @@ class NodesTasksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function nodesTasksGetLogAsyncWithHttpInfo($node, $upid, $download = 0, $limit = 50, $start = 0, $test_status = null, string $contentType = self::contentTypes['nodesTasksGetLog'][0])
+    public function nodesTasksGetLogAsyncWithHttpInfo($node, $upid, $download = false, $limit = 50, $start = 0, $test_status = null, string $contentType = self::contentTypes['nodesTasksGetLog'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\NodesTasksGetLogResponse';
         $request = $this->nodesTasksGetLogRequest($node, $upid, $download, $limit, $start, $test_status, $contentType);
@@ -838,7 +838,7 @@ class NodesTasksApi
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
      * @param  string $upid Unique Process/Task Identifier (required)
-     * @param  bool|null $download Whether the tasklog file should be downloaded. This parameter can&#39;t be used in conjunction with other parameters (optional, default to 0)
+     * @param  bool|null $download Whether the tasklog file should be downloaded. This parameter can&#39;t be used in conjunction with other parameters (optional, default to false)
      * @param  int|null $limit The amount of lines to read from the tasklog. Setting this parameter to 0 will return all lines until the end of the file. (optional, default to 50)
      * @param  int|null $start Start at this line when reading the tasklog (optional, default to 0)
      * @param  bool|null $test_status Test task status, and set result attribute \&quot;active\&quot; accordingly. (optional)
@@ -847,7 +847,7 @@ class NodesTasksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function nodesTasksGetLogRequest($node, $upid, $download = 0, $limit = 50, $start = 0, $test_status = null, string $contentType = self::contentTypes['nodesTasksGetLog'][0])
+    public function nodesTasksGetLogRequest($node, $upid, $download = false, $limit = 50, $start = 0, $test_status = null, string $contentType = self::contentTypes['nodesTasksGetLog'][0])
     {
 
         // verify the required parameter 'node' is set
@@ -1811,9 +1811,9 @@ class NodesTasksApi
      * List tasks
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $errors Only list erroneous tasks. (optional, default to 0)
+     * @param  bool|null $errors Only list erroneous tasks. (optional, default to false)
      * @param  int|null $limit Only list this amount of tasks. (0 means no limit) (optional, default to 50)
-     * @param  bool|null $running Only list running tasks. (optional, default to 0)
+     * @param  bool|null $running Only list running tasks. (optional, default to false)
      * @param  int|null $since Only list tasks since this UNIX epoch. (optional)
      * @param  int|null $start List tasks beginning from this offset. (optional, default to 0)
      * @param  \ClientApi\Pbs\Model\PbsNodesTasksInlineEnum[]|null $statusfilter Only list tasks which have any one of the listed status. (optional)
@@ -1827,7 +1827,7 @@ class NodesTasksApi
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\NodesTasksGetTasksResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function nodesTasksGetTasks($node, $errors = 0, $limit = 50, $running = 0, $since = null, $start = 0, $statusfilter = null, $store = null, $typefilter = null, $until = null, $userfilter = null, string $contentType = self::contentTypes['nodesTasksGetTasks'][0])
+    public function nodesTasksGetTasks($node, $errors = false, $limit = 50, $running = false, $since = null, $start = 0, $statusfilter = null, $store = null, $typefilter = null, $until = null, $userfilter = null, string $contentType = self::contentTypes['nodesTasksGetTasks'][0])
     {
         list($response) = $this->nodesTasksGetTasksWithHttpInfo($node, $errors, $limit, $running, $since, $start, $statusfilter, $store, $typefilter, $until, $userfilter, $contentType);
         return $response;
@@ -1839,9 +1839,9 @@ class NodesTasksApi
      * List tasks
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $errors Only list erroneous tasks. (optional, default to 0)
+     * @param  bool|null $errors Only list erroneous tasks. (optional, default to false)
      * @param  int|null $limit Only list this amount of tasks. (0 means no limit) (optional, default to 50)
-     * @param  bool|null $running Only list running tasks. (optional, default to 0)
+     * @param  bool|null $running Only list running tasks. (optional, default to false)
      * @param  int|null $since Only list tasks since this UNIX epoch. (optional)
      * @param  int|null $start List tasks beginning from this offset. (optional, default to 0)
      * @param  \ClientApi\Pbs\Model\PbsNodesTasksInlineEnum[]|null $statusfilter Only list tasks which have any one of the listed status. (optional)
@@ -1855,7 +1855,7 @@ class NodesTasksApi
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\NodesTasksGetTasksResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function nodesTasksGetTasksWithHttpInfo($node, $errors = 0, $limit = 50, $running = 0, $since = null, $start = 0, $statusfilter = null, $store = null, $typefilter = null, $until = null, $userfilter = null, string $contentType = self::contentTypes['nodesTasksGetTasks'][0])
+    public function nodesTasksGetTasksWithHttpInfo($node, $errors = false, $limit = 50, $running = false, $since = null, $start = 0, $statusfilter = null, $store = null, $typefilter = null, $until = null, $userfilter = null, string $contentType = self::contentTypes['nodesTasksGetTasks'][0])
     {
         $request = $this->nodesTasksGetTasksRequest($node, $errors, $limit, $running, $since, $start, $statusfilter, $store, $typefilter, $until, $userfilter, $contentType);
 
@@ -2032,9 +2032,9 @@ class NodesTasksApi
      * List tasks
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $errors Only list erroneous tasks. (optional, default to 0)
+     * @param  bool|null $errors Only list erroneous tasks. (optional, default to false)
      * @param  int|null $limit Only list this amount of tasks. (0 means no limit) (optional, default to 50)
-     * @param  bool|null $running Only list running tasks. (optional, default to 0)
+     * @param  bool|null $running Only list running tasks. (optional, default to false)
      * @param  int|null $since Only list tasks since this UNIX epoch. (optional)
      * @param  int|null $start List tasks beginning from this offset. (optional, default to 0)
      * @param  \ClientApi\Pbs\Model\PbsNodesTasksInlineEnum[]|null $statusfilter Only list tasks which have any one of the listed status. (optional)
@@ -2047,7 +2047,7 @@ class NodesTasksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function nodesTasksGetTasksAsync($node, $errors = 0, $limit = 50, $running = 0, $since = null, $start = 0, $statusfilter = null, $store = null, $typefilter = null, $until = null, $userfilter = null, string $contentType = self::contentTypes['nodesTasksGetTasks'][0])
+    public function nodesTasksGetTasksAsync($node, $errors = false, $limit = 50, $running = false, $since = null, $start = 0, $statusfilter = null, $store = null, $typefilter = null, $until = null, $userfilter = null, string $contentType = self::contentTypes['nodesTasksGetTasks'][0])
     {
         return $this->nodesTasksGetTasksAsyncWithHttpInfo($node, $errors, $limit, $running, $since, $start, $statusfilter, $store, $typefilter, $until, $userfilter, $contentType)
             ->then(
@@ -2063,9 +2063,9 @@ class NodesTasksApi
      * List tasks
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $errors Only list erroneous tasks. (optional, default to 0)
+     * @param  bool|null $errors Only list erroneous tasks. (optional, default to false)
      * @param  int|null $limit Only list this amount of tasks. (0 means no limit) (optional, default to 50)
-     * @param  bool|null $running Only list running tasks. (optional, default to 0)
+     * @param  bool|null $running Only list running tasks. (optional, default to false)
      * @param  int|null $since Only list tasks since this UNIX epoch. (optional)
      * @param  int|null $start List tasks beginning from this offset. (optional, default to 0)
      * @param  \ClientApi\Pbs\Model\PbsNodesTasksInlineEnum[]|null $statusfilter Only list tasks which have any one of the listed status. (optional)
@@ -2078,7 +2078,7 @@ class NodesTasksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function nodesTasksGetTasksAsyncWithHttpInfo($node, $errors = 0, $limit = 50, $running = 0, $since = null, $start = 0, $statusfilter = null, $store = null, $typefilter = null, $until = null, $userfilter = null, string $contentType = self::contentTypes['nodesTasksGetTasks'][0])
+    public function nodesTasksGetTasksAsyncWithHttpInfo($node, $errors = false, $limit = 50, $running = false, $since = null, $start = 0, $statusfilter = null, $store = null, $typefilter = null, $until = null, $userfilter = null, string $contentType = self::contentTypes['nodesTasksGetTasks'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\NodesTasksGetTasksResponse';
         $request = $this->nodesTasksGetTasksRequest($node, $errors, $limit, $running, $since, $start, $statusfilter, $store, $typefilter, $until, $userfilter, $contentType);
@@ -2123,9 +2123,9 @@ class NodesTasksApi
      * Create request for operation 'nodesTasksGetTasks'
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $errors Only list erroneous tasks. (optional, default to 0)
+     * @param  bool|null $errors Only list erroneous tasks. (optional, default to false)
      * @param  int|null $limit Only list this amount of tasks. (0 means no limit) (optional, default to 50)
-     * @param  bool|null $running Only list running tasks. (optional, default to 0)
+     * @param  bool|null $running Only list running tasks. (optional, default to false)
      * @param  int|null $since Only list tasks since this UNIX epoch. (optional)
      * @param  int|null $start List tasks beginning from this offset. (optional, default to 0)
      * @param  \ClientApi\Pbs\Model\PbsNodesTasksInlineEnum[]|null $statusfilter Only list tasks which have any one of the listed status. (optional)
@@ -2138,7 +2138,7 @@ class NodesTasksApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function nodesTasksGetTasksRequest($node, $errors = 0, $limit = 50, $running = 0, $since = null, $start = 0, $statusfilter = null, $store = null, $typefilter = null, $until = null, $userfilter = null, string $contentType = self::contentTypes['nodesTasksGetTasks'][0])
+    public function nodesTasksGetTasksRequest($node, $errors = false, $limit = 50, $running = false, $since = null, $start = 0, $statusfilter = null, $store = null, $typefilter = null, $until = null, $userfilter = null, string $contentType = self::contentTypes['nodesTasksGetTasks'][0])
     {
 
         // verify the required parameter 'node' is set

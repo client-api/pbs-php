@@ -299,7 +299,7 @@ class ConfigRemoteGetRemoteResponseDataInner implements ModelInterface, ArrayAcc
         
         $this->setIfExists('port', $data ?? [], null);
         
-        $this->setIfExists('use_node_proxy', $data ?? [], 0);
+        $this->setIfExists('use_node_proxy', $data ?? [], false);
         
 
     }

@@ -287,7 +287,7 @@ class AccessTicketCreateTicketRequest implements ModelInterface, ArrayAccess, \J
     public function __construct(?array $data = null)
     {
         
-        $this->setIfExists('http_only', $data ?? [], 0);
+        $this->setIfExists('http_only', $data ?? [], false);
         
         $this->setIfExists('password', $data ?? [], null);
         

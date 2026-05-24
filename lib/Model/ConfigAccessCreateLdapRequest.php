@@ -355,7 +355,7 @@ class ConfigAccessCreateLdapRequest implements ModelInterface, ArrayAccess, \Jso
         
         $this->setIfExists('comment', $data ?? [], null);
         
-        $this->setIfExists('default', $data ?? [], 0);
+        $this->setIfExists('default', $data ?? [], false);
         
         $this->setIfExists('filter', $data ?? [], null);
         
@@ -379,7 +379,7 @@ class ConfigAccessCreateLdapRequest implements ModelInterface, ArrayAccess, \Jso
         
         $this->setIfExists('user_classes', $data ?? [], null);
         
-        $this->setIfExists('verify', $data ?? [], 0);
+        $this->setIfExists('verify', $data ?? [], false);
         
 
     }

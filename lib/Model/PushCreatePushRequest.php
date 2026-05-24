@@ -371,7 +371,7 @@ class PushCreatePushRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         
         $this->setIfExists('remote_store', $data ?? [], null);
         
-        $this->setIfExists('remove_vanished', $data ?? [], 0);
+        $this->setIfExists('remove_vanished', $data ?? [], false);
         
         $this->setIfExists('store', $data ?? [], null);
         

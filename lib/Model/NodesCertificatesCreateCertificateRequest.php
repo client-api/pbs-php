@@ -251,7 +251,7 @@ class NodesCertificatesCreateCertificateRequest implements ModelInterface, Array
     public function __construct(?array $data = null)
     {
         
-        $this->setIfExists('force', $data ?? [], 0);
+        $this->setIfExists('force', $data ?? [], false);
         
 
     }

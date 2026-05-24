@@ -271,11 +271,11 @@ class NodesCertificatesCreateCustomRequest implements ModelInterface, ArrayAcces
         
         $this->setIfExists('certificates', $data ?? [], null);
         
-        $this->setIfExists('force', $data ?? [], 0);
+        $this->setIfExists('force', $data ?? [], false);
         
         $this->setIfExists('key', $data ?? [], null);
         
-        $this->setIfExists('restart', $data ?? [], 0);
+        $this->setIfExists('restart', $data ?? [], false);
         
 
     }

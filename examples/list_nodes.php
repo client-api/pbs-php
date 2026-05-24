@@ -5,7 +5,7 @@
  * Run with:
  *
  *   PBS_HOST=https://pbs.example.com:8007 \
- *   PBS_TOKEN='PBSAPIToken=root@pam!auto=...' \
+ *   PBS_TOKEN='PBSAPIToken=root@pam!auto:...' \
  *   php examples/list_nodes.php
  */
 

@@ -289,7 +289,7 @@ class ConfigAcmeUpdatePluginsRequest implements ModelInterface, ArrayAccess, \Js
         
         $this->setIfExists('digest', $data ?? [], null);
         
-        $this->setIfExists('disable', $data ?? [], 0);
+        $this->setIfExists('disable', $data ?? [], false);
         
         $this->setIfExists('validation_delay', $data ?? [], 30);
         

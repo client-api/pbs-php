@@ -299,7 +299,7 @@ class AdminDatastoreCreatePruneDatastoreRequest implements ModelInterface, Array
     public function __construct(?array $data = null)
     {
         
-        $this->setIfExists('dry_run', $data ?? [], 0);
+        $this->setIfExists('dry_run', $data ?? [], false);
         
         $this->setIfExists('keep_daily', $data ?? [], null);
         

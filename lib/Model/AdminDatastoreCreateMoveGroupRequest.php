@@ -279,7 +279,7 @@ class AdminDatastoreCreateMoveGroupRequest implements ModelInterface, ArrayAcces
         
         $this->setIfExists('backup_type', $data ?? [], null);
         
-        $this->setIfExists('merge_group', $data ?? [], 1);
+        $this->setIfExists('merge_group', $data ?? [], true);
         
         $this->setIfExists('ns', $data ?? [], null);
         

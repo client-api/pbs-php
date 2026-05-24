@@ -257,7 +257,7 @@ class TapeDriveCreateFormatMediaRequest implements ModelInterface, ArrayAccess, 
     public function __construct(?array $data = null)
     {
         
-        $this->setIfExists('fast', $data ?? [], 1);
+        $this->setIfExists('fast', $data ?? [], true);
         
         $this->setIfExists('label_text', $data ?? [], null);
         

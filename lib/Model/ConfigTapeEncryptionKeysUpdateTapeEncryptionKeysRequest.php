@@ -283,7 +283,7 @@ class ConfigTapeEncryptionKeysUpdateTapeEncryptionKeysRequest implements ModelIn
         
         $this->setIfExists('digest', $data ?? [], null);
         
-        $this->setIfExists('force', $data ?? [], 0);
+        $this->setIfExists('force', $data ?? [], false);
         
         $this->setIfExists('hint', $data ?? [], null);
         

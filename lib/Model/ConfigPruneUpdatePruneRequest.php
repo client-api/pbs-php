@@ -335,7 +335,7 @@ class ConfigPruneUpdatePruneRequest implements ModelInterface, ArrayAccess, \Jso
         
         $this->setIfExists('digest', $data ?? [], null);
         
-        $this->setIfExists('disable', $data ?? [], 0);
+        $this->setIfExists('disable', $data ?? [], false);
         
         $this->setIfExists('keep_daily', $data ?? [], null);
         

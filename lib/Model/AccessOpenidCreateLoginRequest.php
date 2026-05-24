@@ -271,7 +271,7 @@ class AccessOpenidCreateLoginRequest implements ModelInterface, ArrayAccess, \Js
         
         $this->setIfExists('code', $data ?? [], null);
         
-        $this->setIfExists('http_only', $data ?? [], 0);
+        $this->setIfExists('http_only', $data ?? [], false);
         
         $this->setIfExists('redirect_url', $data ?? [], null);
         

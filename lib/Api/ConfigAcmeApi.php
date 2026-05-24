@@ -924,14 +924,14 @@ class ConfigAcmeApi
      * Deactivate an ACME account
      *
      * @param  string $name ACME account name. (required)
-     * @param  bool|null $force Delete account data even if the server refuses to deactivate the account. (optional, default to 0)
+     * @param  bool|null $force Delete account data even if the server refuses to deactivate the account. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configAcmeDeleteAccount'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\ConfigAcmeDeleteAccountResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function configAcmeDeleteAccount($name, $force = 0, string $contentType = self::contentTypes['configAcmeDeleteAccount'][0])
+    public function configAcmeDeleteAccount($name, $force = false, string $contentType = self::contentTypes['configAcmeDeleteAccount'][0])
     {
         list($response) = $this->configAcmeDeleteAccountWithHttpInfo($name, $force, $contentType);
         return $response;
@@ -943,14 +943,14 @@ class ConfigAcmeApi
      * Deactivate an ACME account
      *
      * @param  string $name ACME account name. (required)
-     * @param  bool|null $force Delete account data even if the server refuses to deactivate the account. (optional, default to 0)
+     * @param  bool|null $force Delete account data even if the server refuses to deactivate the account. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configAcmeDeleteAccount'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\ConfigAcmeDeleteAccountResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function configAcmeDeleteAccountWithHttpInfo($name, $force = 0, string $contentType = self::contentTypes['configAcmeDeleteAccount'][0])
+    public function configAcmeDeleteAccountWithHttpInfo($name, $force = false, string $contentType = self::contentTypes['configAcmeDeleteAccount'][0])
     {
         $request = $this->configAcmeDeleteAccountRequest($name, $force, $contentType);
 
@@ -1127,13 +1127,13 @@ class ConfigAcmeApi
      * Deactivate an ACME account
      *
      * @param  string $name ACME account name. (required)
-     * @param  bool|null $force Delete account data even if the server refuses to deactivate the account. (optional, default to 0)
+     * @param  bool|null $force Delete account data even if the server refuses to deactivate the account. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configAcmeDeleteAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function configAcmeDeleteAccountAsync($name, $force = 0, string $contentType = self::contentTypes['configAcmeDeleteAccount'][0])
+    public function configAcmeDeleteAccountAsync($name, $force = false, string $contentType = self::contentTypes['configAcmeDeleteAccount'][0])
     {
         return $this->configAcmeDeleteAccountAsyncWithHttpInfo($name, $force, $contentType)
             ->then(
@@ -1149,13 +1149,13 @@ class ConfigAcmeApi
      * Deactivate an ACME account
      *
      * @param  string $name ACME account name. (required)
-     * @param  bool|null $force Delete account data even if the server refuses to deactivate the account. (optional, default to 0)
+     * @param  bool|null $force Delete account data even if the server refuses to deactivate the account. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configAcmeDeleteAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function configAcmeDeleteAccountAsyncWithHttpInfo($name, $force = 0, string $contentType = self::contentTypes['configAcmeDeleteAccount'][0])
+    public function configAcmeDeleteAccountAsyncWithHttpInfo($name, $force = false, string $contentType = self::contentTypes['configAcmeDeleteAccount'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\ConfigAcmeDeleteAccountResponse';
         $request = $this->configAcmeDeleteAccountRequest($name, $force, $contentType);
@@ -1200,13 +1200,13 @@ class ConfigAcmeApi
      * Create request for operation 'configAcmeDeleteAccount'
      *
      * @param  string $name ACME account name. (required)
-     * @param  bool|null $force Delete account data even if the server refuses to deactivate the account. (optional, default to 0)
+     * @param  bool|null $force Delete account data even if the server refuses to deactivate the account. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configAcmeDeleteAccount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function configAcmeDeleteAccountRequest($name, $force = 0, string $contentType = self::contentTypes['configAcmeDeleteAccount'][0])
+    public function configAcmeDeleteAccountRequest($name, $force = false, string $contentType = self::contentTypes['configAcmeDeleteAccount'][0])
     {
 
         // verify the required parameter 'name' is set

@@ -269,7 +269,7 @@ class ConfigChangerGetChangerResponseDataInner implements ModelInterface, ArrayA
     public function __construct(?array $data = null)
     {
         
-        $this->setIfExists('eject_before_unload', $data ?? [], 0);
+        $this->setIfExists('eject_before_unload', $data ?? [], false);
         
         $this->setIfExists('export_slots', $data ?? [], null);
         

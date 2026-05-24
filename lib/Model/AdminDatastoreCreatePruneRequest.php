@@ -315,7 +315,7 @@ class AdminDatastoreCreatePruneRequest implements ModelInterface, ArrayAccess, \
         
         $this->setIfExists('backup_type', $data ?? [], null);
         
-        $this->setIfExists('dry_run', $data ?? [], 0);
+        $this->setIfExists('dry_run', $data ?? [], false);
         
         $this->setIfExists('keep_daily', $data ?? [], null);
         
@@ -331,7 +331,7 @@ class AdminDatastoreCreatePruneRequest implements ModelInterface, ArrayAccess, \
         
         $this->setIfExists('ns', $data ?? [], null);
         
-        $this->setIfExists('use_task', $data ?? [], 0);
+        $this->setIfExists('use_task', $data ?? [], false);
         
 
     }

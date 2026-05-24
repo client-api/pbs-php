@@ -901,14 +901,14 @@ class TapeChangerApi
      * Get tape changer status
      *
      * @param  string $name Tape Changer Identifier. (required)
-     * @param  bool|null $cache Use cached value. (optional, default to 1)
+     * @param  bool|null $cache Use cached value. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeChangerGetStatus'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\TapeChangerGetStatusResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function tapeChangerGetStatus($name, $cache = 1, string $contentType = self::contentTypes['tapeChangerGetStatus'][0])
+    public function tapeChangerGetStatus($name, $cache = true, string $contentType = self::contentTypes['tapeChangerGetStatus'][0])
     {
         list($response) = $this->tapeChangerGetStatusWithHttpInfo($name, $cache, $contentType);
         return $response;
@@ -920,14 +920,14 @@ class TapeChangerApi
      * Get tape changer status
      *
      * @param  string $name Tape Changer Identifier. (required)
-     * @param  bool|null $cache Use cached value. (optional, default to 1)
+     * @param  bool|null $cache Use cached value. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeChangerGetStatus'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\TapeChangerGetStatusResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function tapeChangerGetStatusWithHttpInfo($name, $cache = 1, string $contentType = self::contentTypes['tapeChangerGetStatus'][0])
+    public function tapeChangerGetStatusWithHttpInfo($name, $cache = true, string $contentType = self::contentTypes['tapeChangerGetStatus'][0])
     {
         $request = $this->tapeChangerGetStatusRequest($name, $cache, $contentType);
 
@@ -1104,13 +1104,13 @@ class TapeChangerApi
      * Get tape changer status
      *
      * @param  string $name Tape Changer Identifier. (required)
-     * @param  bool|null $cache Use cached value. (optional, default to 1)
+     * @param  bool|null $cache Use cached value. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeChangerGetStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tapeChangerGetStatusAsync($name, $cache = 1, string $contentType = self::contentTypes['tapeChangerGetStatus'][0])
+    public function tapeChangerGetStatusAsync($name, $cache = true, string $contentType = self::contentTypes['tapeChangerGetStatus'][0])
     {
         return $this->tapeChangerGetStatusAsyncWithHttpInfo($name, $cache, $contentType)
             ->then(
@@ -1126,13 +1126,13 @@ class TapeChangerApi
      * Get tape changer status
      *
      * @param  string $name Tape Changer Identifier. (required)
-     * @param  bool|null $cache Use cached value. (optional, default to 1)
+     * @param  bool|null $cache Use cached value. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeChangerGetStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tapeChangerGetStatusAsyncWithHttpInfo($name, $cache = 1, string $contentType = self::contentTypes['tapeChangerGetStatus'][0])
+    public function tapeChangerGetStatusAsyncWithHttpInfo($name, $cache = true, string $contentType = self::contentTypes['tapeChangerGetStatus'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\TapeChangerGetStatusResponse';
         $request = $this->tapeChangerGetStatusRequest($name, $cache, $contentType);
@@ -1177,13 +1177,13 @@ class TapeChangerApi
      * Create request for operation 'tapeChangerGetStatus'
      *
      * @param  string $name Tape Changer Identifier. (required)
-     * @param  bool|null $cache Use cached value. (optional, default to 1)
+     * @param  bool|null $cache Use cached value. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeChangerGetStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function tapeChangerGetStatusRequest($name, $cache = 1, string $contentType = self::contentTypes['tapeChangerGetStatus'][0])
+    public function tapeChangerGetStatusRequest($name, $cache = true, string $contentType = self::contentTypes['tapeChangerGetStatus'][0])
     {
 
         // verify the required parameter 'name' is set

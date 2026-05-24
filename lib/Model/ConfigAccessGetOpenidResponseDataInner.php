@@ -313,7 +313,7 @@ class ConfigAccessGetOpenidResponseDataInner implements ModelInterface, ArrayAcc
         
         $this->setIfExists('acr_values', $data ?? [], null);
         
-        $this->setIfExists('autocreate', $data ?? [], 0);
+        $this->setIfExists('autocreate', $data ?? [], false);
         
         $this->setIfExists('client_id', $data ?? [], null);
         
@@ -321,7 +321,7 @@ class ConfigAccessGetOpenidResponseDataInner implements ModelInterface, ArrayAcc
         
         $this->setIfExists('comment', $data ?? [], null);
         
-        $this->setIfExists('default', $data ?? [], 0);
+        $this->setIfExists('default', $data ?? [], false);
         
         $this->setIfExists('issuer_url', $data ?? [], null);
         

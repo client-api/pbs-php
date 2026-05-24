@@ -309,7 +309,7 @@ class ConfigVerifyGetVerifyResponseDataInner implements ModelInterface, ArrayAcc
         
         $this->setIfExists('id', $data ?? [], null);
         
-        $this->setIfExists('ignore_verified', $data ?? [], 1);
+        $this->setIfExists('ignore_verified', $data ?? [], true);
         
         $this->setIfExists('max_depth', $data ?? [], 7);
         

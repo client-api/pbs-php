@@ -329,7 +329,7 @@ class TapeBackupCreateBackupRequest implements ModelInterface, ArrayAccess, \Jso
         
         $this->setIfExists('export_media_set', $data ?? [], null);
         
-        $this->setIfExists('force_media_set', $data ?? [], 0);
+        $this->setIfExists('force_media_set', $data ?? [], false);
         
         $this->setIfExists('group_filter', $data ?? [], null);
         

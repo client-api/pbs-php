@@ -313,7 +313,7 @@ class ConfigMetricsUpdateInfluxdbHttpRequest implements ModelInterface, ArrayAcc
         
         $this->setIfExists('digest', $data ?? [], null);
         
-        $this->setIfExists('enable', $data ?? [], 1);
+        $this->setIfExists('enable', $data ?? [], true);
         
         $this->setIfExists('max_body_size', $data ?? [], 25000000);
         
@@ -323,7 +323,7 @@ class ConfigMetricsUpdateInfluxdbHttpRequest implements ModelInterface, ArrayAcc
         
         $this->setIfExists('url', $data ?? [], null);
         
-        $this->setIfExists('verify_tls', $data ?? [], 1);
+        $this->setIfExists('verify_tls', $data ?? [], true);
         
 
     }

@@ -1317,14 +1317,14 @@ class ConfigEncryptionKeysApi
      *
      * List configured encryption keys
      *
-     * @param  bool|null $include_archived List also keys which have been archived. (optional, default to 0)
+     * @param  bool|null $include_archived List also keys which have been archived. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configEncryptionKeysGetEncryptionKeys'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\ConfigEncryptionKeysGetEncryptionKeysResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function configEncryptionKeysGetEncryptionKeys($include_archived = 0, string $contentType = self::contentTypes['configEncryptionKeysGetEncryptionKeys'][0])
+    public function configEncryptionKeysGetEncryptionKeys($include_archived = false, string $contentType = self::contentTypes['configEncryptionKeysGetEncryptionKeys'][0])
     {
         list($response) = $this->configEncryptionKeysGetEncryptionKeysWithHttpInfo($include_archived, $contentType);
         return $response;
@@ -1335,14 +1335,14 @@ class ConfigEncryptionKeysApi
      *
      * List configured encryption keys
      *
-     * @param  bool|null $include_archived List also keys which have been archived. (optional, default to 0)
+     * @param  bool|null $include_archived List also keys which have been archived. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configEncryptionKeysGetEncryptionKeys'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\ConfigEncryptionKeysGetEncryptionKeysResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function configEncryptionKeysGetEncryptionKeysWithHttpInfo($include_archived = 0, string $contentType = self::contentTypes['configEncryptionKeysGetEncryptionKeys'][0])
+    public function configEncryptionKeysGetEncryptionKeysWithHttpInfo($include_archived = false, string $contentType = self::contentTypes['configEncryptionKeysGetEncryptionKeys'][0])
     {
         $request = $this->configEncryptionKeysGetEncryptionKeysRequest($include_archived, $contentType);
 
@@ -1518,13 +1518,13 @@ class ConfigEncryptionKeysApi
      *
      * List configured encryption keys
      *
-     * @param  bool|null $include_archived List also keys which have been archived. (optional, default to 0)
+     * @param  bool|null $include_archived List also keys which have been archived. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configEncryptionKeysGetEncryptionKeys'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function configEncryptionKeysGetEncryptionKeysAsync($include_archived = 0, string $contentType = self::contentTypes['configEncryptionKeysGetEncryptionKeys'][0])
+    public function configEncryptionKeysGetEncryptionKeysAsync($include_archived = false, string $contentType = self::contentTypes['configEncryptionKeysGetEncryptionKeys'][0])
     {
         return $this->configEncryptionKeysGetEncryptionKeysAsyncWithHttpInfo($include_archived, $contentType)
             ->then(
@@ -1539,13 +1539,13 @@ class ConfigEncryptionKeysApi
      *
      * List configured encryption keys
      *
-     * @param  bool|null $include_archived List also keys which have been archived. (optional, default to 0)
+     * @param  bool|null $include_archived List also keys which have been archived. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configEncryptionKeysGetEncryptionKeys'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function configEncryptionKeysGetEncryptionKeysAsyncWithHttpInfo($include_archived = 0, string $contentType = self::contentTypes['configEncryptionKeysGetEncryptionKeys'][0])
+    public function configEncryptionKeysGetEncryptionKeysAsyncWithHttpInfo($include_archived = false, string $contentType = self::contentTypes['configEncryptionKeysGetEncryptionKeys'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\ConfigEncryptionKeysGetEncryptionKeysResponse';
         $request = $this->configEncryptionKeysGetEncryptionKeysRequest($include_archived, $contentType);
@@ -1589,13 +1589,13 @@ class ConfigEncryptionKeysApi
     /**
      * Create request for operation 'configEncryptionKeysGetEncryptionKeys'
      *
-     * @param  bool|null $include_archived List also keys which have been archived. (optional, default to 0)
+     * @param  bool|null $include_archived List also keys which have been archived. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configEncryptionKeysGetEncryptionKeys'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function configEncryptionKeysGetEncryptionKeysRequest($include_archived = 0, string $contentType = self::contentTypes['configEncryptionKeysGetEncryptionKeys'][0])
+    public function configEncryptionKeysGetEncryptionKeysRequest($include_archived = false, string $contentType = self::contentTypes['configEncryptionKeysGetEncryptionKeys'][0])
     {
 
 

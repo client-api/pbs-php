@@ -263,7 +263,7 @@ class AccessDomainsCreateSyncRequest implements ModelInterface, ArrayAccess, \Js
     public function __construct(?array $data = null)
     {
         
-        $this->setIfExists('dry_run', $data ?? [], 0);
+        $this->setIfExists('dry_run', $data ?? [], false);
         
         $this->setIfExists('enable_new', $data ?? [], null);
         

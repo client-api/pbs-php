@@ -4561,14 +4561,14 @@ class TapeDriveApi
      * List drives
      *
      * @param  string|null $changer Tape Changer Identifier. (optional)
-     * @param  bool|null $query_activity If true, queries and returns the drive activity for each drive. (optional, default to 0)
+     * @param  bool|null $query_activity If true, queries and returns the drive activity for each drive. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeDriveGetDrive'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\TapeDriveGetDriveResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function tapeDriveGetDrive($changer = null, $query_activity = 0, string $contentType = self::contentTypes['tapeDriveGetDrive'][0])
+    public function tapeDriveGetDrive($changer = null, $query_activity = false, string $contentType = self::contentTypes['tapeDriveGetDrive'][0])
     {
         list($response) = $this->tapeDriveGetDriveWithHttpInfo($changer, $query_activity, $contentType);
         return $response;
@@ -4580,14 +4580,14 @@ class TapeDriveApi
      * List drives
      *
      * @param  string|null $changer Tape Changer Identifier. (optional)
-     * @param  bool|null $query_activity If true, queries and returns the drive activity for each drive. (optional, default to 0)
+     * @param  bool|null $query_activity If true, queries and returns the drive activity for each drive. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeDriveGetDrive'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\TapeDriveGetDriveResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function tapeDriveGetDriveWithHttpInfo($changer = null, $query_activity = 0, string $contentType = self::contentTypes['tapeDriveGetDrive'][0])
+    public function tapeDriveGetDriveWithHttpInfo($changer = null, $query_activity = false, string $contentType = self::contentTypes['tapeDriveGetDrive'][0])
     {
         $request = $this->tapeDriveGetDriveRequest($changer, $query_activity, $contentType);
 
@@ -4764,13 +4764,13 @@ class TapeDriveApi
      * List drives
      *
      * @param  string|null $changer Tape Changer Identifier. (optional)
-     * @param  bool|null $query_activity If true, queries and returns the drive activity for each drive. (optional, default to 0)
+     * @param  bool|null $query_activity If true, queries and returns the drive activity for each drive. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeDriveGetDrive'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tapeDriveGetDriveAsync($changer = null, $query_activity = 0, string $contentType = self::contentTypes['tapeDriveGetDrive'][0])
+    public function tapeDriveGetDriveAsync($changer = null, $query_activity = false, string $contentType = self::contentTypes['tapeDriveGetDrive'][0])
     {
         return $this->tapeDriveGetDriveAsyncWithHttpInfo($changer, $query_activity, $contentType)
             ->then(
@@ -4786,13 +4786,13 @@ class TapeDriveApi
      * List drives
      *
      * @param  string|null $changer Tape Changer Identifier. (optional)
-     * @param  bool|null $query_activity If true, queries and returns the drive activity for each drive. (optional, default to 0)
+     * @param  bool|null $query_activity If true, queries and returns the drive activity for each drive. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeDriveGetDrive'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tapeDriveGetDriveAsyncWithHttpInfo($changer = null, $query_activity = 0, string $contentType = self::contentTypes['tapeDriveGetDrive'][0])
+    public function tapeDriveGetDriveAsyncWithHttpInfo($changer = null, $query_activity = false, string $contentType = self::contentTypes['tapeDriveGetDrive'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\TapeDriveGetDriveResponse';
         $request = $this->tapeDriveGetDriveRequest($changer, $query_activity, $contentType);
@@ -4837,13 +4837,13 @@ class TapeDriveApi
      * Create request for operation 'tapeDriveGetDrive'
      *
      * @param  string|null $changer Tape Changer Identifier. (optional)
-     * @param  bool|null $query_activity If true, queries and returns the drive activity for each drive. (optional, default to 0)
+     * @param  bool|null $query_activity If true, queries and returns the drive activity for each drive. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tapeDriveGetDrive'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function tapeDriveGetDriveRequest($changer = null, $query_activity = 0, string $contentType = self::contentTypes['tapeDriveGetDrive'][0])
+    public function tapeDriveGetDriveRequest($changer = null, $query_activity = false, string $contentType = self::contentTypes['tapeDriveGetDrive'][0])
     {
 
         if ($changer !== null && strlen($changer) > 32) {

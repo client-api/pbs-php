@@ -285,7 +285,7 @@ class ConfigAcmeCreatePluginsRequest implements ModelInterface, ArrayAccess, \Js
         
         $this->setIfExists('data', $data ?? [], null);
         
-        $this->setIfExists('disable', $data ?? [], 0);
+        $this->setIfExists('disable', $data ?? [], false);
         
         $this->setIfExists('id', $data ?? [], null);
         

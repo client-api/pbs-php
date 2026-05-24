@@ -309,7 +309,7 @@ class AccessUsersGetUsersResponseDataInner implements ModelInterface, ArrayAcces
         
         $this->setIfExists('email', $data ?? [], null);
         
-        $this->setIfExists('enable', $data ?? [], 1);
+        $this->setIfExists('enable', $data ?? [], true);
         
         $this->setIfExists('expire', $data ?? [], 0);
         
@@ -321,7 +321,7 @@ class AccessUsersGetUsersResponseDataInner implements ModelInterface, ArrayAcces
         
         $this->setIfExists('tokens', $data ?? [], null);
         
-        $this->setIfExists('totp_locked', $data ?? [], 0);
+        $this->setIfExists('totp_locked', $data ?? [], false);
         
         $this->setIfExists('userid', $data ?? [], null);
         

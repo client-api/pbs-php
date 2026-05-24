@@ -333,7 +333,7 @@ class AdminVerifyGetVerifyResponseDataInner implements ModelInterface, ArrayAcce
         
         $this->setIfExists('id', $data ?? [], null);
         
-        $this->setIfExists('ignore_verified', $data ?? [], 1);
+        $this->setIfExists('ignore_verified', $data ?? [], true);
         
         $this->setIfExists('last_run_endtime', $data ?? [], null);
         

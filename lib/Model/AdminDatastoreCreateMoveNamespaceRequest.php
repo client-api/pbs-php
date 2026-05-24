@@ -275,11 +275,11 @@ class AdminDatastoreCreateMoveNamespaceRequest implements ModelInterface, ArrayA
     public function __construct(?array $data = null)
     {
         
-        $this->setIfExists('delete_source', $data ?? [], 1);
+        $this->setIfExists('delete_source', $data ?? [], true);
         
         $this->setIfExists('max_depth', $data ?? [], 7);
         
-        $this->setIfExists('merge_groups', $data ?? [], 1);
+        $this->setIfExists('merge_groups', $data ?? [], true);
         
         $this->setIfExists('ns', $data ?? [], null);
         

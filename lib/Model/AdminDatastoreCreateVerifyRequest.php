@@ -305,7 +305,7 @@ class AdminDatastoreCreateVerifyRequest implements ModelInterface, ArrayAccess, 
         
         $this->setIfExists('backup_type', $data ?? [], null);
         
-        $this->setIfExists('ignore_verified', $data ?? [], 1);
+        $this->setIfExists('ignore_verified', $data ?? [], true);
         
         $this->setIfExists('max_depth', $data ?? [], 7);
         

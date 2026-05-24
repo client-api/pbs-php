@@ -349,7 +349,7 @@ class ConfigAccessCreateAdRequest implements ModelInterface, ArrayAccess, \JsonS
         
         $this->setIfExists('comment', $data ?? [], null);
         
-        $this->setIfExists('default', $data ?? [], 0);
+        $this->setIfExists('default', $data ?? [], false);
         
         $this->setIfExists('filter', $data ?? [], null);
         
@@ -371,7 +371,7 @@ class ConfigAccessCreateAdRequest implements ModelInterface, ArrayAccess, \JsonS
         
         $this->setIfExists('user_classes', $data ?? [], null);
         
-        $this->setIfExists('verify', $data ?? [], 0);
+        $this->setIfExists('verify', $data ?? [], false);
         
 
     }

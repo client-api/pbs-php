@@ -271,7 +271,7 @@ class ConfigAccessUpdatePamRequest implements ModelInterface, ArrayAccess, \Json
         
         $this->setIfExists('comment', $data ?? [], null);
         
-        $this->setIfExists('default', $data ?? [], 0);
+        $this->setIfExists('default', $data ?? [], false);
         
         $this->setIfExists('delete', $data ?? [], null);
         

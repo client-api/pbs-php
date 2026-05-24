@@ -942,14 +942,14 @@ class NodesCertificatesApi
      * Delete the current certificate and regenerate a self signed one
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $restart UI compatibility parameter, ignored (optional, default to 0)
+     * @param  bool|null $restart UI compatibility parameter, ignored (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['nodesCertificatesDeleteCustom'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\NodesCertificatesDeleteCustomResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function nodesCertificatesDeleteCustom($node, $restart = 0, string $contentType = self::contentTypes['nodesCertificatesDeleteCustom'][0])
+    public function nodesCertificatesDeleteCustom($node, $restart = false, string $contentType = self::contentTypes['nodesCertificatesDeleteCustom'][0])
     {
         list($response) = $this->nodesCertificatesDeleteCustomWithHttpInfo($node, $restart, $contentType);
         return $response;
@@ -961,14 +961,14 @@ class NodesCertificatesApi
      * Delete the current certificate and regenerate a self signed one
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $restart UI compatibility parameter, ignored (optional, default to 0)
+     * @param  bool|null $restart UI compatibility parameter, ignored (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['nodesCertificatesDeleteCustom'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\NodesCertificatesDeleteCustomResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function nodesCertificatesDeleteCustomWithHttpInfo($node, $restart = 0, string $contentType = self::contentTypes['nodesCertificatesDeleteCustom'][0])
+    public function nodesCertificatesDeleteCustomWithHttpInfo($node, $restart = false, string $contentType = self::contentTypes['nodesCertificatesDeleteCustom'][0])
     {
         $request = $this->nodesCertificatesDeleteCustomRequest($node, $restart, $contentType);
 
@@ -1145,13 +1145,13 @@ class NodesCertificatesApi
      * Delete the current certificate and regenerate a self signed one
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $restart UI compatibility parameter, ignored (optional, default to 0)
+     * @param  bool|null $restart UI compatibility parameter, ignored (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['nodesCertificatesDeleteCustom'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function nodesCertificatesDeleteCustomAsync($node, $restart = 0, string $contentType = self::contentTypes['nodesCertificatesDeleteCustom'][0])
+    public function nodesCertificatesDeleteCustomAsync($node, $restart = false, string $contentType = self::contentTypes['nodesCertificatesDeleteCustom'][0])
     {
         return $this->nodesCertificatesDeleteCustomAsyncWithHttpInfo($node, $restart, $contentType)
             ->then(
@@ -1167,13 +1167,13 @@ class NodesCertificatesApi
      * Delete the current certificate and regenerate a self signed one
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $restart UI compatibility parameter, ignored (optional, default to 0)
+     * @param  bool|null $restart UI compatibility parameter, ignored (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['nodesCertificatesDeleteCustom'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function nodesCertificatesDeleteCustomAsyncWithHttpInfo($node, $restart = 0, string $contentType = self::contentTypes['nodesCertificatesDeleteCustom'][0])
+    public function nodesCertificatesDeleteCustomAsyncWithHttpInfo($node, $restart = false, string $contentType = self::contentTypes['nodesCertificatesDeleteCustom'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\NodesCertificatesDeleteCustomResponse';
         $request = $this->nodesCertificatesDeleteCustomRequest($node, $restart, $contentType);
@@ -1218,13 +1218,13 @@ class NodesCertificatesApi
      * Create request for operation 'nodesCertificatesDeleteCustom'
      *
      * @param  string $node Node name (or &#39;localhost&#39;) (required)
-     * @param  bool|null $restart UI compatibility parameter, ignored (optional, default to 0)
+     * @param  bool|null $restart UI compatibility parameter, ignored (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['nodesCertificatesDeleteCustom'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function nodesCertificatesDeleteCustomRequest($node, $restart = 0, string $contentType = self::contentTypes['nodesCertificatesDeleteCustom'][0])
+    public function nodesCertificatesDeleteCustomRequest($node, $restart = false, string $contentType = self::contentTypes['nodesCertificatesDeleteCustom'][0])
     {
 
         // verify the required parameter 'node' is set

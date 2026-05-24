@@ -335,7 +335,7 @@ class ConfigS3GetS3ResponseDataInner implements ModelInterface, ArrayAccess, \Js
         
         $this->setIfExists('id', $data ?? [], null);
         
-        $this->setIfExists('path_style', $data ?? [], 0);
+        $this->setIfExists('path_style', $data ?? [], false);
         
         $this->setIfExists('port', $data ?? [], null);
         

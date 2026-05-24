@@ -520,16 +520,16 @@ class ConfigDatastoreApi
      * Remove a datastore configuration and optionally delete all its contents
      *
      * @param  string $name Datastore name. (required)
-     * @param  bool|null $destroy_data Delete the datastore&#39;s underlying contents (optional, default to 0)
+     * @param  bool|null $destroy_data Delete the datastore&#39;s underlying contents (optional, default to false)
      * @param  string|null $digest Prevent changes if current configuration file has different SHA256 digest. This can be used to prevent concurrent modifications. (optional)
-     * @param  bool|null $keep_job_configs If enabled, the job configurations related to this datastore will be kept. (optional, default to 0)
+     * @param  bool|null $keep_job_configs If enabled, the job configurations related to this datastore will be kept. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configDatastoreDeleteDatastore'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\ConfigDatastoreDeleteDatastoreResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function configDatastoreDeleteDatastore($name, $destroy_data = 0, $digest = null, $keep_job_configs = 0, string $contentType = self::contentTypes['configDatastoreDeleteDatastore'][0])
+    public function configDatastoreDeleteDatastore($name, $destroy_data = false, $digest = null, $keep_job_configs = false, string $contentType = self::contentTypes['configDatastoreDeleteDatastore'][0])
     {
         list($response) = $this->configDatastoreDeleteDatastoreWithHttpInfo($name, $destroy_data, $digest, $keep_job_configs, $contentType);
         return $response;
@@ -541,16 +541,16 @@ class ConfigDatastoreApi
      * Remove a datastore configuration and optionally delete all its contents
      *
      * @param  string $name Datastore name. (required)
-     * @param  bool|null $destroy_data Delete the datastore&#39;s underlying contents (optional, default to 0)
+     * @param  bool|null $destroy_data Delete the datastore&#39;s underlying contents (optional, default to false)
      * @param  string|null $digest Prevent changes if current configuration file has different SHA256 digest. This can be used to prevent concurrent modifications. (optional)
-     * @param  bool|null $keep_job_configs If enabled, the job configurations related to this datastore will be kept. (optional, default to 0)
+     * @param  bool|null $keep_job_configs If enabled, the job configurations related to this datastore will be kept. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configDatastoreDeleteDatastore'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\ConfigDatastoreDeleteDatastoreResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function configDatastoreDeleteDatastoreWithHttpInfo($name, $destroy_data = 0, $digest = null, $keep_job_configs = 0, string $contentType = self::contentTypes['configDatastoreDeleteDatastore'][0])
+    public function configDatastoreDeleteDatastoreWithHttpInfo($name, $destroy_data = false, $digest = null, $keep_job_configs = false, string $contentType = self::contentTypes['configDatastoreDeleteDatastore'][0])
     {
         $request = $this->configDatastoreDeleteDatastoreRequest($name, $destroy_data, $digest, $keep_job_configs, $contentType);
 
@@ -727,15 +727,15 @@ class ConfigDatastoreApi
      * Remove a datastore configuration and optionally delete all its contents
      *
      * @param  string $name Datastore name. (required)
-     * @param  bool|null $destroy_data Delete the datastore&#39;s underlying contents (optional, default to 0)
+     * @param  bool|null $destroy_data Delete the datastore&#39;s underlying contents (optional, default to false)
      * @param  string|null $digest Prevent changes if current configuration file has different SHA256 digest. This can be used to prevent concurrent modifications. (optional)
-     * @param  bool|null $keep_job_configs If enabled, the job configurations related to this datastore will be kept. (optional, default to 0)
+     * @param  bool|null $keep_job_configs If enabled, the job configurations related to this datastore will be kept. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configDatastoreDeleteDatastore'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function configDatastoreDeleteDatastoreAsync($name, $destroy_data = 0, $digest = null, $keep_job_configs = 0, string $contentType = self::contentTypes['configDatastoreDeleteDatastore'][0])
+    public function configDatastoreDeleteDatastoreAsync($name, $destroy_data = false, $digest = null, $keep_job_configs = false, string $contentType = self::contentTypes['configDatastoreDeleteDatastore'][0])
     {
         return $this->configDatastoreDeleteDatastoreAsyncWithHttpInfo($name, $destroy_data, $digest, $keep_job_configs, $contentType)
             ->then(
@@ -751,15 +751,15 @@ class ConfigDatastoreApi
      * Remove a datastore configuration and optionally delete all its contents
      *
      * @param  string $name Datastore name. (required)
-     * @param  bool|null $destroy_data Delete the datastore&#39;s underlying contents (optional, default to 0)
+     * @param  bool|null $destroy_data Delete the datastore&#39;s underlying contents (optional, default to false)
      * @param  string|null $digest Prevent changes if current configuration file has different SHA256 digest. This can be used to prevent concurrent modifications. (optional)
-     * @param  bool|null $keep_job_configs If enabled, the job configurations related to this datastore will be kept. (optional, default to 0)
+     * @param  bool|null $keep_job_configs If enabled, the job configurations related to this datastore will be kept. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configDatastoreDeleteDatastore'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function configDatastoreDeleteDatastoreAsyncWithHttpInfo($name, $destroy_data = 0, $digest = null, $keep_job_configs = 0, string $contentType = self::contentTypes['configDatastoreDeleteDatastore'][0])
+    public function configDatastoreDeleteDatastoreAsyncWithHttpInfo($name, $destroy_data = false, $digest = null, $keep_job_configs = false, string $contentType = self::contentTypes['configDatastoreDeleteDatastore'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\ConfigDatastoreDeleteDatastoreResponse';
         $request = $this->configDatastoreDeleteDatastoreRequest($name, $destroy_data, $digest, $keep_job_configs, $contentType);
@@ -804,15 +804,15 @@ class ConfigDatastoreApi
      * Create request for operation 'configDatastoreDeleteDatastore'
      *
      * @param  string $name Datastore name. (required)
-     * @param  bool|null $destroy_data Delete the datastore&#39;s underlying contents (optional, default to 0)
+     * @param  bool|null $destroy_data Delete the datastore&#39;s underlying contents (optional, default to false)
      * @param  string|null $digest Prevent changes if current configuration file has different SHA256 digest. This can be used to prevent concurrent modifications. (optional)
-     * @param  bool|null $keep_job_configs If enabled, the job configurations related to this datastore will be kept. (optional, default to 0)
+     * @param  bool|null $keep_job_configs If enabled, the job configurations related to this datastore will be kept. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['configDatastoreDeleteDatastore'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function configDatastoreDeleteDatastoreRequest($name, $destroy_data = 0, $digest = null, $keep_job_configs = 0, string $contentType = self::contentTypes['configDatastoreDeleteDatastore'][0])
+    public function configDatastoreDeleteDatastoreRequest($name, $destroy_data = false, $digest = null, $keep_job_configs = false, string $contentType = self::contentTypes['configDatastoreDeleteDatastore'][0])
     {
 
         // verify the required parameter 'name' is set

@@ -275,7 +275,7 @@ class NodesDisksCreateDirectoryRequest implements ModelInterface, ArrayAccess, \
     public function __construct(?array $data = null)
     {
         
-        $this->setIfExists('add_datastore', $data ?? [], 0);
+        $this->setIfExists('add_datastore', $data ?? [], false);
         
         $this->setIfExists('disk', $data ?? [], null);
         
@@ -283,7 +283,7 @@ class NodesDisksCreateDirectoryRequest implements ModelInterface, ArrayAccess, \
         
         $this->setIfExists('name', $data ?? [], null);
         
-        $this->setIfExists('removable_datastore', $data ?? [], 0);
+        $this->setIfExists('removable_datastore', $data ?? [], false);
         
 
     }

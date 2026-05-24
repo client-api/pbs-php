@@ -4621,7 +4621,7 @@ class AdminDatastoreApi
      * @param  string $backup_id Backup ID. (required)
      * @param  \ClientApi\Pbs\Model\PbsBackupTypeEnum $backup_type Backup types. (required)
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $error_on_protected Return error when group cannot be deleted because of protected snapshots (optional, default to 1)
+     * @param  bool|null $error_on_protected Return error when group cannot be deleted because of protected snapshots (optional, default to true)
      * @param  string|null $ns Namespace. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreDeleteGroups'] to see the possible values for this operation
      *
@@ -4629,7 +4629,7 @@ class AdminDatastoreApi
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\AdminDatastoreDeleteGroupsResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function adminDatastoreDeleteGroups($backup_id, $backup_type, $store, $error_on_protected = 1, $ns = null, string $contentType = self::contentTypes['adminDatastoreDeleteGroups'][0])
+    public function adminDatastoreDeleteGroups($backup_id, $backup_type, $store, $error_on_protected = true, $ns = null, string $contentType = self::contentTypes['adminDatastoreDeleteGroups'][0])
     {
         list($response) = $this->adminDatastoreDeleteGroupsWithHttpInfo($backup_id, $backup_type, $store, $error_on_protected, $ns, $contentType);
         return $response;
@@ -4643,7 +4643,7 @@ class AdminDatastoreApi
      * @param  string $backup_id Backup ID. (required)
      * @param  \ClientApi\Pbs\Model\PbsBackupTypeEnum $backup_type Backup types. (required)
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $error_on_protected Return error when group cannot be deleted because of protected snapshots (optional, default to 1)
+     * @param  bool|null $error_on_protected Return error when group cannot be deleted because of protected snapshots (optional, default to true)
      * @param  string|null $ns Namespace. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreDeleteGroups'] to see the possible values for this operation
      *
@@ -4651,7 +4651,7 @@ class AdminDatastoreApi
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\AdminDatastoreDeleteGroupsResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function adminDatastoreDeleteGroupsWithHttpInfo($backup_id, $backup_type, $store, $error_on_protected = 1, $ns = null, string $contentType = self::contentTypes['adminDatastoreDeleteGroups'][0])
+    public function adminDatastoreDeleteGroupsWithHttpInfo($backup_id, $backup_type, $store, $error_on_protected = true, $ns = null, string $contentType = self::contentTypes['adminDatastoreDeleteGroups'][0])
     {
         $request = $this->adminDatastoreDeleteGroupsRequest($backup_id, $backup_type, $store, $error_on_protected, $ns, $contentType);
 
@@ -4830,14 +4830,14 @@ class AdminDatastoreApi
      * @param  string $backup_id Backup ID. (required)
      * @param  \ClientApi\Pbs\Model\PbsBackupTypeEnum $backup_type Backup types. (required)
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $error_on_protected Return error when group cannot be deleted because of protected snapshots (optional, default to 1)
+     * @param  bool|null $error_on_protected Return error when group cannot be deleted because of protected snapshots (optional, default to true)
      * @param  string|null $ns Namespace. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreDeleteGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function adminDatastoreDeleteGroupsAsync($backup_id, $backup_type, $store, $error_on_protected = 1, $ns = null, string $contentType = self::contentTypes['adminDatastoreDeleteGroups'][0])
+    public function adminDatastoreDeleteGroupsAsync($backup_id, $backup_type, $store, $error_on_protected = true, $ns = null, string $contentType = self::contentTypes['adminDatastoreDeleteGroups'][0])
     {
         return $this->adminDatastoreDeleteGroupsAsyncWithHttpInfo($backup_id, $backup_type, $store, $error_on_protected, $ns, $contentType)
             ->then(
@@ -4855,14 +4855,14 @@ class AdminDatastoreApi
      * @param  string $backup_id Backup ID. (required)
      * @param  \ClientApi\Pbs\Model\PbsBackupTypeEnum $backup_type Backup types. (required)
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $error_on_protected Return error when group cannot be deleted because of protected snapshots (optional, default to 1)
+     * @param  bool|null $error_on_protected Return error when group cannot be deleted because of protected snapshots (optional, default to true)
      * @param  string|null $ns Namespace. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreDeleteGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function adminDatastoreDeleteGroupsAsyncWithHttpInfo($backup_id, $backup_type, $store, $error_on_protected = 1, $ns = null, string $contentType = self::contentTypes['adminDatastoreDeleteGroups'][0])
+    public function adminDatastoreDeleteGroupsAsyncWithHttpInfo($backup_id, $backup_type, $store, $error_on_protected = true, $ns = null, string $contentType = self::contentTypes['adminDatastoreDeleteGroups'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\AdminDatastoreDeleteGroupsResponse';
         $request = $this->adminDatastoreDeleteGroupsRequest($backup_id, $backup_type, $store, $error_on_protected, $ns, $contentType);
@@ -4909,14 +4909,14 @@ class AdminDatastoreApi
      * @param  string $backup_id Backup ID. (required)
      * @param  \ClientApi\Pbs\Model\PbsBackupTypeEnum $backup_type Backup types. (required)
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $error_on_protected Return error when group cannot be deleted because of protected snapshots (optional, default to 1)
+     * @param  bool|null $error_on_protected Return error when group cannot be deleted because of protected snapshots (optional, default to true)
      * @param  string|null $ns Namespace. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreDeleteGroups'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function adminDatastoreDeleteGroupsRequest($backup_id, $backup_type, $store, $error_on_protected = 1, $ns = null, string $contentType = self::contentTypes['adminDatastoreDeleteGroups'][0])
+    public function adminDatastoreDeleteGroupsRequest($backup_id, $backup_type, $store, $error_on_protected = true, $ns = null, string $contentType = self::contentTypes['adminDatastoreDeleteGroups'][0])
     {
 
         // verify the required parameter 'backup_id' is set
@@ -5086,15 +5086,15 @@ class AdminDatastoreApi
      *
      * @param  string $ns Namespace. (required)
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $delete_groups If set, all groups will be destroyed in the whole hierarchy below andincluding &#x60;ns&#x60;. If not set, only empty namespaces will be pruned. (optional, default to 0)
-     * @param  bool|null $error_on_protected Return error when namespace cannot be deleted because of protected snapshots (optional, default to 1)
+     * @param  bool|null $delete_groups If set, all groups will be destroyed in the whole hierarchy below andincluding &#x60;ns&#x60;. If not set, only empty namespaces will be pruned. (optional, default to false)
+     * @param  bool|null $error_on_protected Return error when namespace cannot be deleted because of protected snapshots (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreDeleteNamespace'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\AdminDatastoreDeleteNamespaceResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function adminDatastoreDeleteNamespace($ns, $store, $delete_groups = 0, $error_on_protected = 1, string $contentType = self::contentTypes['adminDatastoreDeleteNamespace'][0])
+    public function adminDatastoreDeleteNamespace($ns, $store, $delete_groups = false, $error_on_protected = true, string $contentType = self::contentTypes['adminDatastoreDeleteNamespace'][0])
     {
         list($response) = $this->adminDatastoreDeleteNamespaceWithHttpInfo($ns, $store, $delete_groups, $error_on_protected, $contentType);
         return $response;
@@ -5107,15 +5107,15 @@ class AdminDatastoreApi
      *
      * @param  string $ns Namespace. (required)
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $delete_groups If set, all groups will be destroyed in the whole hierarchy below andincluding &#x60;ns&#x60;. If not set, only empty namespaces will be pruned. (optional, default to 0)
-     * @param  bool|null $error_on_protected Return error when namespace cannot be deleted because of protected snapshots (optional, default to 1)
+     * @param  bool|null $delete_groups If set, all groups will be destroyed in the whole hierarchy below andincluding &#x60;ns&#x60;. If not set, only empty namespaces will be pruned. (optional, default to false)
+     * @param  bool|null $error_on_protected Return error when namespace cannot be deleted because of protected snapshots (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreDeleteNamespace'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\AdminDatastoreDeleteNamespaceResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function adminDatastoreDeleteNamespaceWithHttpInfo($ns, $store, $delete_groups = 0, $error_on_protected = 1, string $contentType = self::contentTypes['adminDatastoreDeleteNamespace'][0])
+    public function adminDatastoreDeleteNamespaceWithHttpInfo($ns, $store, $delete_groups = false, $error_on_protected = true, string $contentType = self::contentTypes['adminDatastoreDeleteNamespace'][0])
     {
         $request = $this->adminDatastoreDeleteNamespaceRequest($ns, $store, $delete_groups, $error_on_protected, $contentType);
 
@@ -5293,14 +5293,14 @@ class AdminDatastoreApi
      *
      * @param  string $ns Namespace. (required)
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $delete_groups If set, all groups will be destroyed in the whole hierarchy below andincluding &#x60;ns&#x60;. If not set, only empty namespaces will be pruned. (optional, default to 0)
-     * @param  bool|null $error_on_protected Return error when namespace cannot be deleted because of protected snapshots (optional, default to 1)
+     * @param  bool|null $delete_groups If set, all groups will be destroyed in the whole hierarchy below andincluding &#x60;ns&#x60;. If not set, only empty namespaces will be pruned. (optional, default to false)
+     * @param  bool|null $error_on_protected Return error when namespace cannot be deleted because of protected snapshots (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreDeleteNamespace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function adminDatastoreDeleteNamespaceAsync($ns, $store, $delete_groups = 0, $error_on_protected = 1, string $contentType = self::contentTypes['adminDatastoreDeleteNamespace'][0])
+    public function adminDatastoreDeleteNamespaceAsync($ns, $store, $delete_groups = false, $error_on_protected = true, string $contentType = self::contentTypes['adminDatastoreDeleteNamespace'][0])
     {
         return $this->adminDatastoreDeleteNamespaceAsyncWithHttpInfo($ns, $store, $delete_groups, $error_on_protected, $contentType)
             ->then(
@@ -5317,14 +5317,14 @@ class AdminDatastoreApi
      *
      * @param  string $ns Namespace. (required)
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $delete_groups If set, all groups will be destroyed in the whole hierarchy below andincluding &#x60;ns&#x60;. If not set, only empty namespaces will be pruned. (optional, default to 0)
-     * @param  bool|null $error_on_protected Return error when namespace cannot be deleted because of protected snapshots (optional, default to 1)
+     * @param  bool|null $delete_groups If set, all groups will be destroyed in the whole hierarchy below andincluding &#x60;ns&#x60;. If not set, only empty namespaces will be pruned. (optional, default to false)
+     * @param  bool|null $error_on_protected Return error when namespace cannot be deleted because of protected snapshots (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreDeleteNamespace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function adminDatastoreDeleteNamespaceAsyncWithHttpInfo($ns, $store, $delete_groups = 0, $error_on_protected = 1, string $contentType = self::contentTypes['adminDatastoreDeleteNamespace'][0])
+    public function adminDatastoreDeleteNamespaceAsyncWithHttpInfo($ns, $store, $delete_groups = false, $error_on_protected = true, string $contentType = self::contentTypes['adminDatastoreDeleteNamespace'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\AdminDatastoreDeleteNamespaceResponse';
         $request = $this->adminDatastoreDeleteNamespaceRequest($ns, $store, $delete_groups, $error_on_protected, $contentType);
@@ -5370,14 +5370,14 @@ class AdminDatastoreApi
      *
      * @param  string $ns Namespace. (required)
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $delete_groups If set, all groups will be destroyed in the whole hierarchy below andincluding &#x60;ns&#x60;. If not set, only empty namespaces will be pruned. (optional, default to 0)
-     * @param  bool|null $error_on_protected Return error when namespace cannot be deleted because of protected snapshots (optional, default to 1)
+     * @param  bool|null $delete_groups If set, all groups will be destroyed in the whole hierarchy below andincluding &#x60;ns&#x60;. If not set, only empty namespaces will be pruned. (optional, default to false)
+     * @param  bool|null $error_on_protected Return error when namespace cannot be deleted because of protected snapshots (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreDeleteNamespace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function adminDatastoreDeleteNamespaceRequest($ns, $store, $delete_groups = 0, $error_on_protected = 1, string $contentType = self::contentTypes['adminDatastoreDeleteNamespace'][0])
+    public function adminDatastoreDeleteNamespaceRequest($ns, $store, $delete_groups = false, $error_on_protected = true, string $contentType = self::contentTypes['adminDatastoreDeleteNamespace'][0])
     {
 
         // verify the required parameter 'ns' is set
@@ -13120,14 +13120,14 @@ class AdminDatastoreApi
      * Get datastore status
      *
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $verbose Include additional information like snapshot counts and GC status. (optional, default to 0)
+     * @param  bool|null $verbose Include additional information like snapshot counts and GC status. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreGetStatus'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\AdminDatastoreGetStatusResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function adminDatastoreGetStatus($store, $verbose = 0, string $contentType = self::contentTypes['adminDatastoreGetStatus'][0])
+    public function adminDatastoreGetStatus($store, $verbose = false, string $contentType = self::contentTypes['adminDatastoreGetStatus'][0])
     {
         list($response) = $this->adminDatastoreGetStatusWithHttpInfo($store, $verbose, $contentType);
         return $response;
@@ -13139,14 +13139,14 @@ class AdminDatastoreApi
      * Get datastore status
      *
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $verbose Include additional information like snapshot counts and GC status. (optional, default to 0)
+     * @param  bool|null $verbose Include additional information like snapshot counts and GC status. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreGetStatus'] to see the possible values for this operation
      *
      * @throws \ClientApi\Pbs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\AdminDatastoreGetStatusResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function adminDatastoreGetStatusWithHttpInfo($store, $verbose = 0, string $contentType = self::contentTypes['adminDatastoreGetStatus'][0])
+    public function adminDatastoreGetStatusWithHttpInfo($store, $verbose = false, string $contentType = self::contentTypes['adminDatastoreGetStatus'][0])
     {
         $request = $this->adminDatastoreGetStatusRequest($store, $verbose, $contentType);
 
@@ -13323,13 +13323,13 @@ class AdminDatastoreApi
      * Get datastore status
      *
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $verbose Include additional information like snapshot counts and GC status. (optional, default to 0)
+     * @param  bool|null $verbose Include additional information like snapshot counts and GC status. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreGetStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function adminDatastoreGetStatusAsync($store, $verbose = 0, string $contentType = self::contentTypes['adminDatastoreGetStatus'][0])
+    public function adminDatastoreGetStatusAsync($store, $verbose = false, string $contentType = self::contentTypes['adminDatastoreGetStatus'][0])
     {
         return $this->adminDatastoreGetStatusAsyncWithHttpInfo($store, $verbose, $contentType)
             ->then(
@@ -13345,13 +13345,13 @@ class AdminDatastoreApi
      * Get datastore status
      *
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $verbose Include additional information like snapshot counts and GC status. (optional, default to 0)
+     * @param  bool|null $verbose Include additional information like snapshot counts and GC status. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreGetStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function adminDatastoreGetStatusAsyncWithHttpInfo($store, $verbose = 0, string $contentType = self::contentTypes['adminDatastoreGetStatus'][0])
+    public function adminDatastoreGetStatusAsyncWithHttpInfo($store, $verbose = false, string $contentType = self::contentTypes['adminDatastoreGetStatus'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\AdminDatastoreGetStatusResponse';
         $request = $this->adminDatastoreGetStatusRequest($store, $verbose, $contentType);
@@ -13396,13 +13396,13 @@ class AdminDatastoreApi
      * Create request for operation 'adminDatastoreGetStatus'
      *
      * @param  string $store Datastore name. (required)
-     * @param  bool|null $verbose Include additional information like snapshot counts and GC status. (optional, default to 0)
+     * @param  bool|null $verbose Include additional information like snapshot counts and GC status. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['adminDatastoreGetStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function adminDatastoreGetStatusRequest($store, $verbose = 0, string $contentType = self::contentTypes['adminDatastoreGetStatus'][0])
+    public function adminDatastoreGetStatusRequest($store, $verbose = false, string $contentType = self::contentTypes['adminDatastoreGetStatus'][0])
     {
 
         // verify the required parameter 'store' is set

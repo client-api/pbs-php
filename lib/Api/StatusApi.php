@@ -492,7 +492,7 @@ class StatusApi
      *
      * Return backup server metrics
      *
-     * @param  bool|null $history Include historic values (last 30 minutes) (optional, default to 0)
+     * @param  bool|null $history Include historic values (last 30 minutes) (optional, default to false)
      * @param  int|null $start_time Only return values with a timestamp &gt; start-time. Only has an effect if &#39;history&#39; is also set (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['statusGetMetrics'] to see the possible values for this operation
      *
@@ -500,7 +500,7 @@ class StatusApi
      * @throws \InvalidArgumentException
      * @return \ClientApi\Pbs\Model\StatusGetMetricsResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError
      */
-    public function statusGetMetrics($history = 0, $start_time = 0, string $contentType = self::contentTypes['statusGetMetrics'][0])
+    public function statusGetMetrics($history = false, $start_time = 0, string $contentType = self::contentTypes['statusGetMetrics'][0])
     {
         list($response) = $this->statusGetMetricsWithHttpInfo($history, $start_time, $contentType);
         return $response;
@@ -511,7 +511,7 @@ class StatusApi
      *
      * Return backup server metrics
      *
-     * @param  bool|null $history Include historic values (last 30 minutes) (optional, default to 0)
+     * @param  bool|null $history Include historic values (last 30 minutes) (optional, default to false)
      * @param  int|null $start_time Only return values with a timestamp &gt; start-time. Only has an effect if &#39;history&#39; is also set (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['statusGetMetrics'] to see the possible values for this operation
      *
@@ -519,7 +519,7 @@ class StatusApi
      * @throws \InvalidArgumentException
      * @return array of \ClientApi\Pbs\Model\StatusGetMetricsResponse|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError|\ClientApi\Pbs\Model\PbsError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function statusGetMetricsWithHttpInfo($history = 0, $start_time = 0, string $contentType = self::contentTypes['statusGetMetrics'][0])
+    public function statusGetMetricsWithHttpInfo($history = false, $start_time = 0, string $contentType = self::contentTypes['statusGetMetrics'][0])
     {
         $request = $this->statusGetMetricsRequest($history, $start_time, $contentType);
 
@@ -695,14 +695,14 @@ class StatusApi
      *
      * Return backup server metrics
      *
-     * @param  bool|null $history Include historic values (last 30 minutes) (optional, default to 0)
+     * @param  bool|null $history Include historic values (last 30 minutes) (optional, default to false)
      * @param  int|null $start_time Only return values with a timestamp &gt; start-time. Only has an effect if &#39;history&#39; is also set (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['statusGetMetrics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function statusGetMetricsAsync($history = 0, $start_time = 0, string $contentType = self::contentTypes['statusGetMetrics'][0])
+    public function statusGetMetricsAsync($history = false, $start_time = 0, string $contentType = self::contentTypes['statusGetMetrics'][0])
     {
         return $this->statusGetMetricsAsyncWithHttpInfo($history, $start_time, $contentType)
             ->then(
@@ -717,14 +717,14 @@ class StatusApi
      *
      * Return backup server metrics
      *
-     * @param  bool|null $history Include historic values (last 30 minutes) (optional, default to 0)
+     * @param  bool|null $history Include historic values (last 30 minutes) (optional, default to false)
      * @param  int|null $start_time Only return values with a timestamp &gt; start-time. Only has an effect if &#39;history&#39; is also set (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['statusGetMetrics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function statusGetMetricsAsyncWithHttpInfo($history = 0, $start_time = 0, string $contentType = self::contentTypes['statusGetMetrics'][0])
+    public function statusGetMetricsAsyncWithHttpInfo($history = false, $start_time = 0, string $contentType = self::contentTypes['statusGetMetrics'][0])
     {
         $returnType = '\ClientApi\Pbs\Model\StatusGetMetricsResponse';
         $request = $this->statusGetMetricsRequest($history, $start_time, $contentType);
@@ -768,14 +768,14 @@ class StatusApi
     /**
      * Create request for operation 'statusGetMetrics'
      *
-     * @param  bool|null $history Include historic values (last 30 minutes) (optional, default to 0)
+     * @param  bool|null $history Include historic values (last 30 minutes) (optional, default to false)
      * @param  int|null $start_time Only return values with a timestamp &gt; start-time. Only has an effect if &#39;history&#39; is also set (optional, default to 0)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['statusGetMetrics'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function statusGetMetricsRequest($history = 0, $start_time = 0, string $contentType = self::contentTypes['statusGetMetrics'][0])
+    public function statusGetMetricsRequest($history = false, $start_time = 0, string $contentType = self::contentTypes['statusGetMetrics'][0])
     {
 
 

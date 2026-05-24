@@ -27,7 +27,7 @@ use ClientApi\Pbs\Pve;
 
 $cfg = Configuration::getDefaultConfiguration()
     ->setHost('https://pbs1.example.com:8007/api2/json')
-    ->setApiKey('Authorization', 'PBSAPIToken=user@realm!tokenid=uuid-secret');
+    ->setApiKey('Authorization', 'PBSAPIToken=user@realm!tokenid:uuid-secret');
 
 $pve = new Pbs($cfg);
 

@@ -315,7 +315,7 @@ class ConfigRemoteUpdateRemoteRequest implements ModelInterface, ArrayAccess, \J
         
         $this->setIfExists('port', $data ?? [], null);
         
-        $this->setIfExists('use_node_proxy', $data ?? [], 0);
+        $this->setIfExists('use_node_proxy', $data ?? [], false);
         
 
     }

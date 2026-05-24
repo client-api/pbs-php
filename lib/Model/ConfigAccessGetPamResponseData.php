@@ -271,7 +271,7 @@ class ConfigAccessGetPamResponseData implements ModelInterface, ArrayAccess, \Js
         
         $this->setIfExists('comment', $data ?? [], null);
         
-        $this->setIfExists('default', $data ?? [], 0);
+        $this->setIfExists('default', $data ?? [], false);
         
         $this->setIfExists('realm', $data ?? [], null);
         
